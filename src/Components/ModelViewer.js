@@ -1,6 +1,7 @@
 import HotspotButton from "./HotspotButton";
+import React from "react";
 
-function ModelViewer() {
+function ModelViewer({ startVideo, stopVideo }) {
     return (
         <model-viewer
             id="model"
@@ -26,6 +27,8 @@ function ModelViewer() {
                 normal="0m 1m 0m"
                 visibilityAttribute="visible"
                 blindOrLightOrCam="light"
+                startVideo={startVideo}
+                stopVideo={stopVideo}
             />
             <HotspotButton
                 slot="hotspot-2"

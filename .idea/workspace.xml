@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Backup &amp; initial commit" />
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="backup before video feed">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/HotspotButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ModelViewer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/VideoPlayer.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +21,8 @@
       <list>
         <option value="package.json" />
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -106,7 +112,7 @@
       <workItem from="1698651906123" duration="14119000" />
       <workItem from="1698686284016" duration="1592000" />
       <workItem from="1698690384842" duration="7259000" />
-      <workItem from="1698699569320" duration="35000" />
+      <workItem from="1698699569320" duration="1781000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -140,7 +146,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698699581620</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Backup &amp; initial commit">
+      <option name="closed" value="true" />
+      <created>1698699610039</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698699610039</updated>
+    </task>
+    <task id="LOCAL-00006" summary="backup before video feed">
+      <option name="closed" value="true" />
+      <created>1698699718170</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698699718170</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +185,7 @@
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="Backup &amp; initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Backup &amp; initial commit" />
+    <MESSAGE value="backup before video feed" />
+    <option name="LAST_COMMIT_MESSAGE" value="backup before video feed" />
   </component>
 </project>
