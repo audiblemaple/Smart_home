@@ -67,9 +67,11 @@ const HotspotButton = ({
             <div className="fab-wheel">
                 {blindOrLightOrCam === 'blind' && (
                     <>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-4">
                             <i className="fas fa-question"></i>
                         </a>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-5">
                             <i className="fas fa-address-book"></i>
                         </a>
@@ -77,12 +79,15 @@ const HotspotButton = ({
                 )}
                 {blindOrLightOrCam === 'light' && (
                     <>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-1">
                             <i className="fas fa-question"></i>
                         </a>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-2">
                             <i className="fas fa-book"></i>
                         </a>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-3">
                             <i className="fas fa-address-book"></i>
                         </a>
