@@ -1,0 +1,18 @@
+body{
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(218, 255, 251, 0.92) 40%, transparent 100%);
+}
+
+.container{
+    object-fit: contain;
+    height: 100vh;
+    width:auto;
+}
+
+model-viewer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
