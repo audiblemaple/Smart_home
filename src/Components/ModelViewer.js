@@ -6,13 +6,13 @@ function ModelViewer({ startVideo, stopVideo }) {
         <model-viewer
             id="model"
             src="fixed_12.glb"
-            camera-controls
+            camera-controls=""
             exposure="0.4"
             environment-image="industrial_sunset_puresky_2k.hdr"
             skybox-image="industrial_sunset_puresky_2k.hdr"
             shadow-intensity="2"
             shadow-softness="1"
-            disable-tap
+            disable-tap=""
             interaction-prompt="none"
             camera-orbit="30deg 60deg 30m"
             max-camera-orbit="40deg 45deg 40m"
