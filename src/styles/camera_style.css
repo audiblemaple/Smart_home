@@ -1,4 +1,5 @@
 .camera-feed {
+    transform: scaleX(-1);
     position: absolute;
     top: 0;
     left: 0;
@@ -7,11 +8,7 @@
     background-color: black;
 }
 
-.camera-feed video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 
 .exit-button {
     position: absolute;

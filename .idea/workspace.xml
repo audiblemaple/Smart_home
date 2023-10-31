@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="fixed some errors">
-      <change afterPath="$PROJECT_DIR$/src/Components/CameraFeed.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/House_view.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/camera_style.css" afterDir="false" />
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="added camera feed functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fixed_12.glb" beforeDir="false" afterPath="$PROJECT_DIR$/public/fixed_13.glb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/HotspotButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ModelViewer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Buttons_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/CameraFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CameraFeed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/camera_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/camera_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +113,8 @@
       <workItem from="1698686284016" duration="1592000" />
       <workItem from="1698690384842" duration="7259000" />
       <workItem from="1698699569320" duration="2246000" />
-      <workItem from="1698774936185" duration="7403000" />
+      <workItem from="1698774936185" duration="7491000" />
+      <workItem from="1698785752504" duration="1548000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -194,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698701590976</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added camera feed functionality">
+      <option name="closed" value="true" />
+      <created>1698785088940</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698785088940</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +221,7 @@
     <MESSAGE value="Backup &amp; initial commit" />
     <MESSAGE value="backup before video feed" />
     <MESSAGE value="fixed some errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed some errors" />
+    <MESSAGE value="added camera feed functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added camera feed functionality" />
   </component>
 </project>
