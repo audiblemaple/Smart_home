@@ -5,7 +5,7 @@ function ModelViewer({ startVideo, stopVideo }) {
     return (
         <model-viewer
             id="model"
-            src="fixed_12.glb"
+            src="fixed_13.glb"
             camera-controls=""
             exposure="0.4"
             environment-image="industrial_sunset_puresky_2k.hdr"

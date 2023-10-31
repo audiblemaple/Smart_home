@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import "../styles/Buttons_style.css"
+import { useNavigate } from 'react-router-dom';
 
 const HotspotButton = ({
                            slot,
@@ -15,6 +16,8 @@ const HotspotButton = ({
         : blindOrLightOrCam === 'light'
             ? 'fab-light'
             : 'fab-cam';    const checkboxRef = useRef(null); // reference to the checkbox
+
+    const navigate = useNavigate();
 
     const focusOnHotspot = (button) => {
         const position = button.getAttribute('data-position');
@@ -38,7 +41,12 @@ const HotspotButton = ({
         };
     }, []);
 
-    const handleCheckboxClick = (e) => {
+    function sleep(s) {
+        return new Promise(resolve => setTimeout(resolve, s * 1000));
+    }
+
+
+    const handleCheckboxClick = async (e) => {
         e.stopPropagation();
         const checkboxes = document.querySelectorAll('.fab-checkbox');
         checkboxes.forEach(checkbox => {
@@ -46,6 +54,10 @@ const HotspotButton = ({
         });
         checkboxRef.current.checked = true;
         focusOnHotspot(e.currentTarget.parentElement);
+        await sleep(0.3);
+        if (blindOrLightOrCam === "cam") {
+            navigate('/camera_feed');
+        }
     };
 
     return (
@@ -64,14 +76,12 @@ const HotspotButton = ({
                 onClick={handleCheckboxClick}
             />
             <label className={labelClass} htmlFor={slot}></label>
-            <div className="fab-wheel">
+            <div className="fab-wheel" >
                 {blindOrLightOrCam === 'blind' && (
                     <>
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-4">
                             <i className="fas fa-question"></i>
                         </a>
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-5">
                             <i className="fas fa-address-book"></i>
                         </a>
@@ -79,15 +89,12 @@ const HotspotButton = ({
                 )}
                 {blindOrLightOrCam === 'light' && (
                     <>
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-1">
                             <i className="fas fa-question"></i>
                         </a>
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-2">
                             <i className="fas fa-book"></i>
                         </a>
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a className="fab-action fab-action-3">
                             <i className="fas fa-address-book"></i>
                         </a>
