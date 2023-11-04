@@ -5,11 +5,11 @@ function ModelViewer({ startVideo, stopVideo }) {
     return (
         <model-viewer
             id="model"
-            src="fixed_13.glb"
+            src="Home_model.glb"
             camera-controls=""
             exposure="0.4"
-            environment-image="industrial_sunset_puresky_2k.hdr"
-            skybox-image="industrial_sunset_puresky_2k.hdr"
+            environment-image="Background_skybox.hdr"
+            skybox-image="Background_skybox.hdr"
             shadow-intensity="2"
             shadow-softness="1"
             disable-tap=""
