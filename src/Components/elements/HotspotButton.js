@@ -77,7 +77,7 @@ const HotspotButton = ({
             <div className="fab-wheel" >
                 {blindOrLightOrCam === 'blind' && (
                     <>
-                        <a className="fab-action fab-action-4">
+                        <a  className="fab-action fab-action-4">
                             <i className="fas fa-question"></i>
                         </a>
                         <a className="fab-action fab-action-5">
