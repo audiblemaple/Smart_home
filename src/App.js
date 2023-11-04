@@ -1,5 +1,4 @@
 import './styles/App.css';
-// import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import House_view from "./Components/House_view";
