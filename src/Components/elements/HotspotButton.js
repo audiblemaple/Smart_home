@@ -6,7 +6,6 @@ const HotspotButton = ({
                            slot,
                            position,
                            normal,
-                           visibilityAttribute,
                            blindOrLightOrCam,
                        }) => {
     const wrapperClass = `fab-wrapper Hotspot`;
@@ -27,9 +26,8 @@ const HotspotButton = ({
 
     useEffect(() => {
         const handleDocumentClick = () => {
-            if (checkboxRef.current) {
+            if (checkboxRef.current)
                 checkboxRef.current.checked = false;
-            }
         };
 
         document.addEventListener('click', handleDocumentClick);
@@ -39,11 +37,6 @@ const HotspotButton = ({
         };
     }, []);
 
-    function sleep(s) {
-        return new Promise(resolve => setTimeout(resolve, s * 1000));
-    }
-
-
     const handleCheckboxClick = async (e) => {
         e.stopPropagation();
         const checkboxes = document.querySelectorAll('.fab-checkbox');
@@ -52,10 +45,8 @@ const HotspotButton = ({
         });
         checkboxRef.current.checked = true;
         focusOnHotspot(e.currentTarget.parentElement);
-        await sleep(0.3);
-        if (blindOrLightOrCam === "cam") {
+        if (blindOrLightOrCam === "cam")
             window.location.href = "http://192.168.1.159:8081/";
-        }
     };
 
     return (
@@ -64,7 +55,7 @@ const HotspotButton = ({
             slot={slot}
             data-position={position}
             data-normal={normal}
-            data-visibility-attribute={visibilityAttribute}
+            data-visibility-attribute="visible"
         >
             <input
                 ref={checkboxRef}
@@ -111,7 +102,6 @@ HotspotButton.propTypes = {
     slot: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
     normal: PropTypes.string.isRequired,
-    visibilityAttribute: PropTypes.string.isRequired,
     blindOrLightOrCam: PropTypes.oneOf(['blind', 'light', 'cam']).isRequired
 };
 
