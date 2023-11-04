@@ -1,11 +1,9 @@
 import React from 'react';
-import ModelViewer from './ModelViewer';
-import Banner from './Banner';
-import PerspectiveButton from './PerspectiveButton';
-import { Link } from 'react-router-dom';
+import ModelViewer from '../elements/ModelViewer';
+import Banner from '../elements/Banner';
+import PerspectiveButton from '../elements/PerspectiveButton';
 
-
-const MyComponent = () => {
+const HouseView = () => {
     return (
         <div className="container">
             <div className="box">
@@ -17,4 +15,4 @@ const MyComponent = () => {
     );
 }
 
-export default MyComponent;
+export default HouseView;

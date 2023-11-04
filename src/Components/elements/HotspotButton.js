@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import "../styles/Buttons_style.css"
-import { useNavigate } from 'react-router-dom';
+import "../../styles/Buttons_style.css"
 
 const HotspotButton = ({
                            slot,
@@ -17,7 +16,6 @@ const HotspotButton = ({
             ? 'fab-light'
             : 'fab-cam';    const checkboxRef = useRef(null); // reference to the checkbox
 
-    const navigate = useNavigate();
 
     const focusOnHotspot = (button) => {
         const position = button.getAttribute('data-position');
@@ -56,7 +54,7 @@ const HotspotButton = ({
         focusOnHotspot(e.currentTarget.parentElement);
         await sleep(0.3);
         if (blindOrLightOrCam === "cam") {
-            navigate('/camera_feed');
+            window.location.href = "http://192.168.1.159:8081/";
         }
     };
 

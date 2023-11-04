@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/default_view_button.css"
+import "../../styles/default_view_button.css"
 
 class PerspectiveButton extends React.Component {
     defaultView = () => {

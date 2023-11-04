@@ -1,10 +1,10 @@
 # Smart Home 3D Control System
 
 Welcome to my Smart Home 3D Control System repository.\
-This project is designed to provide an intuitive interface for managing and interacting with custom microcontrollers that are set up in the house.\
+This project is designed to provide an intuitive interface for managing and interacting with custom microcontrollers that are set up in my house.\
 The interface includes a 3D model of a home where users can visually navigate to different areas and control smart devices such as lights and window blinds.\
 It also features a live camera feed from the entrance door for security and monitoring.\
-**Currently, for security measures everything is functional only when connected to the houses LAN network.**
+**Currently, for security measures everything is functional only when connected to my houses LAN network.**
 
 ## Features
 

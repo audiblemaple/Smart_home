@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/camera_style.css'
+import '../../styles/camera_style.css'
 import {useNavigate} from "react-router-dom";
 
 
