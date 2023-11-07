@@ -1,35 +1,23 @@
-.camera-feed {
-    transform: scaleX(-1);
+iframe{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
+    width: 100vw;
+    height: 100vh;
 }
-
-
-
-.exit-button {
+.return-home-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    height: 50px;
-    width: 50px;
-    border-radius: 5px;
+    top: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    z-index: 1000;
+    border-radius: 40px;
+    border: none;
     cursor: pointer;
-    box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.16);
-
     background:
-        rgba(0, 0, 0, 0.14)
-        url('data:image/svg+xml,<svg style="color: rgb(0, 0, 0);" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" fill="%23000000"></path></svg>')        no-repeat
-        center;
-
-    transition: all 0.3s ease-in-out;
-    outline: none;
-}
-
-.exit-button:hover{
-    scale: 1.1;
-    outline: none;
+            rgba(171, 171, 171, 0.18)
+            url('data:image/svg+xml,<svg style="color: rgb(0, 0, 0);" width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.9998 22C7.95337 22.0024 4.30431 19.5659 2.75548 15.8276C1.20665 12.0893 2.06336 7.78606 4.92581 4.92598C7.45311 2.39868 11.1367 1.41166 14.5891 2.33672C18.0414 3.26177 20.738 5.95836 21.6631 9.41072C22.5881 12.8631 21.6011 16.5467 19.0738 19.074C17.2013 20.955 14.654 22.0086 11.9998 22ZM3.99981 12.172C4.04713 16.5732 7.64092 20.1095 12.0424 20.086C16.4438 20.0622 19.9994 16.4875 19.9994 12.086C19.9994 7.68449 16.4438 4.10975 12.0424 4.08598C7.64092 4.06244 4.04713 7.59874 3.99981 12V12.172ZM9.40881 16L7.99981 14.59L10.5898 12L7.99981 9.40998L9.40981 7.99998L11.9998 10.59L14.5898 7.99998L15.9998 9.40998L13.4098 12L15.9998 14.59L14.5908 16L11.9998 13.41L9.40981 16H9.40881Z" fill="%23000000"></path></svg>')
+            no-repeat
+            center;
 }
