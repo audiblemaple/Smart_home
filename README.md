@@ -20,7 +20,7 @@ It also features a live camera feed from the entrance door for security and moni
 - Zoom in and out to get a better view of different areas of the home.
 
 ### Controlling Smart Devices
-- Click on any button associated with a light or window blind to control that device.
+- Click on any button associated with a light, window blind or air conditioning to control that device.
 - The camera will automatically focus and zoom in on the device for precise control.
 
 ### Entrance Camera
