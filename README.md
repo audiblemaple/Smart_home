@@ -25,7 +25,7 @@ It also features a live camera feed from the entrance door for security and moni
 
 ### Entrance Camera
 - The camera feed is live on the main interface.
-- You can view the entrance in real-time to ensure your home's safety.
+- I can view the entrance in real-time to ensure my home's safety.
 
 ## Installation
 
