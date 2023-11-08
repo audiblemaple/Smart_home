@@ -11,7 +11,7 @@ It also features a live camera feed from the entrance door for security and moni
 - **3D Home Model**: A detailed 3D representation of my home using `<model-viewer>` for an immersive experience.
 - **Interactive Controls**: Buttons placed within the 3D model allow users to control lights and window blinds in the corresponding real-world locations. | **No Physical control yet**
 - **Focus and Zoom**: Upon clicking a control button, the view zooms in on the selected device, allowing for a closer look and easier control.
-- **Entrance Camera**: A real-time camera feed from the entrance door is available to monitor who is entering or leaving the home. | **Non-Functional yet**
+- **Entrance Camera**: A real-time camera feed from the entrance door is available to monitor who is entering or leaving the home.
 
 ## How to Use
 
