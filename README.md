@@ -1,4 +1,4 @@
-# Smart Home 3D Control System
+# Smart Home Control System with 3D view
 
 Welcome to my Smart Home 3D Control System repository.\
 This project is designed to provide an intuitive interface for managing and interacting with custom microcontrollers that are set up in my house.\
