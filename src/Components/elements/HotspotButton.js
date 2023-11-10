@@ -9,9 +9,11 @@ const HotspotButton = ({
                            position,
                            normal,
                            blindOrLightOrCam: initialBlindOrLightOrCam,
-                           isOn: initialIsOn,
                        }) => {
-    const [isOn, setIsOn] = useState(initialIsOn);
+
+    const [isOn, setIsOn] = useState(false);
+    const [isSetup, setUpFinish] = useState(true);
+
     const wrapperClass = `fab-wrapper Hotspot`;
     const subButtonClass = "fas";
 
@@ -28,25 +30,61 @@ const HotspotButton = ({
                     ? 'fab-cam'
                     : 'fab-ac';
 
-    const [isActive, setIsActive] = useState(false);
     const checkboxRef = useRef(null);
     const navigate = useNavigate();
+
 
     useEffect(() => {
         Object.keys(hotspotConfig).forEach((key) => {
             if (key === slot)
                 setIsOn(hotspotConfig[key].isOn)
         });
+        console.log('first config set:', isOn);
+        setUpFinish(false)
     }, []);
 
+    useEffect(() => {
+        if (isSetup)
+            return
+        Object.keys(hotspotConfig).forEach((key) => {
+            if (key === slot)
+                setIsOn(hotspotConfig[key].isOn = isOn);
+        });
+        console.log('after config set:', isOn, "is setup stage?: ", isSetup);
+        updateConfig()
+    }, [isOn]);
+
     const toggleActive = () => {
-        setIsActive(!isActive);
+        setIsOn(!isOn);
+    };
+
+    const updateConfig = async (hotspotConfig) => {
+        console.log('Config update called');
+
+        try {
+            const response = await fetch('/api/saveState', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(hotspotConfig),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log('Config updated:', data);
+        } catch (error) {
+            console.error('Error updating config:', error);
+        }
     };
 
     const handleLightButtonClick = () => {
+        console.log('toggle active called');
         if (initialBlindOrLightOrCam === 'light' || blindOrLightOrCam === 'light_off')
-            setIsOn(!isOn);
-        console.log(slot, "changed")
+            toggleActive()
     };
 
     const handleCheckboxClick = async (e) => {
@@ -121,7 +159,7 @@ const HotspotButton = ({
                         <a className="fab-action fab-action-5">
                             <i className={subButtonClass}></i>
                         </a>
-                        <a className={`fab-action ${isActive ? 'fab-action-8' : 'fab-action-6'}`} onClick={toggleActive}>
+                        <a className={`fab-action ${isOn ? 'fab-action-8' : 'fab-action-6'}`} onClick={toggleActive}>
                             <i className={subButtonClass}></i>
                         </a>
                         <a className="fab-action fab-action-7">
