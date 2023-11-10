@@ -4,14 +4,14 @@ Welcome to my Smart Home 3D Control System repository.\
 This project is designed to provide an intuitive interface for managing and interacting with custom microcontrollers that are set up in my house.\
 The interface includes a 3D model of a home where users can visually navigate to different areas and control smart devices such as lights and window blinds.\
 It also features a live camera feed from the entrance door for security and monitoring.\
-**Currently, for security measures everything is functional only when connected to my houses LAN network.**
+**Currently, for security measures everything is functional only when connected to my houses WI-FI network.**
 
 ## Features
 
 - **3D Home Model**: A detailed 3D representation of my home using `<model-viewer>` for an immersive experience.
 - **Interactive Controls**: Buttons placed within the 3D model allow users to control lights and window blinds in the corresponding real-world locations. | **No Physical control yet**
 - **Focus and Zoom**: Upon clicking a control button, the view zooms in on the selected device, allowing for a closer look and easier control.
-- **Entrance Camera**: A real-time camera feed from the entrance door is available to monitor who is entering or leaving the home. | **Non-Functional yet**
+- **Entrance Camera**: A real-time camera feed from the entrance door is available to monitor who is entering or leaving the home.
 
 ## How to Use
 
@@ -20,12 +20,12 @@ It also features a live camera feed from the entrance door for security and moni
 - Zoom in and out to get a better view of different areas of the home.
 
 ### Controlling Smart Devices
-- Click on any button associated with a light or window blind to control that device.
+- Click on any button associated with a light, window blind or air conditioning to control that device.
 - The camera will automatically focus and zoom in on the device for precise control.
 
 ### Entrance Camera
 - The camera feed is live on the main interface.
-- You can view the entrance in real-time to ensure your home's safety.
+- I can view the entrance in real-time to ensure my home's safety.
 
 ## Installation
 
