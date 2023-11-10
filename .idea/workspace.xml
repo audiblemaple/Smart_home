@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="branch removed">
+      <change afterPath="$PROJECT_DIR$/src/temp/temp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/CameraFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/CameraFeed.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/configs/hotspotConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/configs/hotspotConfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/Buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Buttons_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/camera_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/camera_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stm32_initial code" beforeDir="false" afterPath="$PROJECT_DIR$/NodeMCU_initial code" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +22,9 @@
       <list>
         <option value="package.json" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="tsconfig.json" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -41,6 +35,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/temp/temp.js" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -148,6 +145,10 @@
       <workItem from="1699386890217" duration="275000" />
       <workItem from="1699389513428" duration="255000" />
       <workItem from="1699389971902" duration="2978000" />
+      <workItem from="1699554605579" duration="246000" />
+      <workItem from="1699554895088" duration="1607000" />
+      <workItem from="1699556755286" duration="5140000" />
+      <workItem from="1699603311708" duration="4398000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />

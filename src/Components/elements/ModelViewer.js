@@ -8,7 +8,7 @@ function ModelViewer() {
             id="model"
             src="Home_model.glb"
             camera-controls=""
-            exposure="0.4"
+            exposure="0.6"
             environment-image="Background_skybox.hdr"
             skybox-image="Background_skybox.hdr"
             shadow-intensity="2"

@@ -6,25 +6,30 @@
     display: none;
 }
 
-.fab-blind, .fab-light, .fab-cam, .fab-ac {
+.fab-blind, .fab-light, .fab-light-off, .fab-cam, .fab-ac {
     position: absolute;
     bottom: -1rem;
     right: -1rem;
     width: 3rem;
     height: 3rem;
     background: #bebebe;
-    border-radius: 50%;
     background: rgba(201, 201, 201, 0.27);
-    box-shadow: 0px 5px 20px rgba(255, 245, 163, 0.57);
+    box-shadow: 0 0px 40px rgba(255, 245, 163, 0.65);
     transition: all 0.2s ease-in-out;
     z-index: 1;
-    border-bottom-right-radius: 6px;
+    border-radius: 50% 50% 6px 50%;
     border: 1px solid rgba(255, 245, 163, 0.57);
     cursor: pointer;
 }
 
+.fab-light-off{
+    box-shadow:none
+}
+.fab-blind, .fab-ac, .fab-cam{
+    box-shadow: 0 0 20px rgba(72, 72, 72, 0.65);
+}
 
-.fab-blind:before, .fab-light:before, .fab-cam:before, .fab-ac:before{
+.fab-blind:before, .fab-light:before, .fab-light-off:before, .fab-cam:before, .fab-ac:before{
     transform: rotateZ(-45deg);
     content: "";
     position: absolute;
@@ -49,6 +54,13 @@
             no-repeat
             center;
 }
+.fab-light-off:before {
+    background:
+            url('data:image/svg+xml,<svg style="color: rgb(0, 0, 0);" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" fill="%23000000"></path></svg>')
+            no-repeat
+            center;
+}
+
 
 .fab-cam:before{
     background:
@@ -74,9 +86,14 @@
     top: 5%;
     background-color: rgba(255, 255, 255, 0.2);
 }
+
 .fab-blind:hover, .fab-light:hover {
     background: rgba(252, 255, 199, 0.32);
-    box-shadow: 0px 5px 20px 5px rgba(255, 245, 163, 0.57);
+    box-shadow: 0 5px 20px 5px rgba(255, 245, 163, 0.57);
+    /* Use the pseudo-element to create an overlay that can be animated independently */
+    content: "";
+    background-image: inherit; /* Inherit the background from the parent */
+    animation: rotateBackground 0.5s linear forwards; /* Animation defined below */
 }
 
 .fab-wheel {
@@ -84,8 +101,8 @@
     bottom: 0;
     right: 0;
     border: none;
-    width: 100px;
-    height: 100px;
+    width: 10px;
+    height: 10px;
     transition: all 0.2s ease-in-out;
     transform-origin: bottom right;
 }
@@ -100,7 +117,7 @@
     align-items: center;
     justify-content: center;
     color: White;
-    box-shadow: 0px 5px 20px 5px rgba(255, 245, 163, 0.57);
+    box-shadow: 0 5px 20px 5px rgba(255, 245, 163, 0.57);
     transition: all 0.3s ease;
     opacity: 0;
 }
@@ -137,8 +154,8 @@
             center;
 }
 .fab-wheel .fab-action-3 {
-    right: -1rem;
-    top: 0;
+    right: 3rem;
+    top: -1.5rem;
     cursor: pointer;
     transform: rotateZ(-45deg);
     background:
@@ -147,8 +164,8 @@
             center;
 }
 .fab-wheel .fab-action-4 {
-    left: 0;
-    bottom: -1rem;
+    left: -1.5rem;
+    bottom: 3rem;
     cursor: pointer;
     transform: rotateZ(-45deg);
     background:
@@ -157,8 +174,8 @@
             center;
 }
 .fab-wheel .fab-action-5 {
-    right: -1rem;
-    top: 0;
+    right: -1.5rem;
+    top: -5.2rem;
     cursor: pointer;
     transform: rotateZ(-45deg);
     background:
@@ -166,9 +183,9 @@
             no-repeat
             center;
 }
-.fab-wheel .fab-action-6 {
-    right: 52%;
-    top: 0;
+.fab-wheel .fab-action-6, .fab-wheel .fab-action-8 {
+    right: 2.4rem;
+    top: -4.5rem;
     cursor: pointer;
     transform: rotateZ(-45deg);
     background:
@@ -176,22 +193,20 @@
             no-repeat
             center;
 }
+.fab-wheel .fab-action-8 {
+    background:
+            url('data:image/svg+xml,<svg width="35" height="35" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 15V9C1 5.68629 3.68629 3 7 3H17C20.3137 3 23 5.68629 23 9V15C23 18.3137 20.3137 21 17 21H7C3.68629 21 1 18.3137 1 15Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 9C8.65685 9 10 10.3431 10 12C10 13.6569 8.65685 15 7 15C5.34315 15 4 13.6569 4 12C4 10.3431 5.34315 9 7 9Z" stroke="currentColor" stroke-width="1.5"/><path d="M12 15V9L15 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 15V9L20 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.0001 12H14.5715" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.0001 12H19.5715" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+            no-repeat
+            center;
+}
+
 .fab-wheel .fab-action-7 {
-    left: 0rem;
-    bottom: -1rem;
+    right: 2.9rem;
+    top: -0.5rem;
     cursor: pointer;
     transform: rotateZ(-45deg);
     background:
             url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle"><line x1="8" y1="12" x2="16" y2="12"></line></svg>')
-            no-repeat
-            center;
-}
-.fab-wheel .fab-action-8 {
-    top: 0;
-    cursor: pointer;
-    transform: rotateZ(-45deg);
-    background:
-            url('data:image/svg+xml,<svg width="35" height="35" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 15V9C1 5.68629 3.68629 3 7 3H17C20.3137 3 23 5.68629 23 9V15C23 18.3137 20.3137 21 17 21H7C3.68629 21 1 18.3137 1 15Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 9C8.65685 9 10 10.3431 10 12C10 13.6569 8.65685 15 7 15C5.34315 15 4 13.6569 4 12C4 10.3431 5.34315 9 7 9Z" stroke="currentColor" stroke-width="1.5"/><path d="M12 15V9L15 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 15V9L20 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.0001 12H14.5715" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.0001 12H19.5715" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>')
             no-repeat
             center;
 }
