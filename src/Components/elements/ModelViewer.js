@@ -2,7 +2,6 @@ import HotspotButton from "./HotspotButton";
 import React from "react";
 import hotspotConfig from "../../configs/hotspotConfig.json";
 
-
 function ModelViewer() {
     return (
         <model-viewer
