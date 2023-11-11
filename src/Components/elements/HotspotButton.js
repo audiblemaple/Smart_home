@@ -35,28 +35,33 @@ const HotspotButton = ({
 
 
     useEffect(() => {
-        setIsOn(hotspotConfig[slot].isOn)
-        console.log('first config set:', isOn);
-        setUpFinish(false)
+        // Initial setup
+        const currentConfig = hotspotConfig[slot]?.isOn;
+        setIsOn(currentConfig);
+        setUpFinish(false); // Mark setup as complete
     }, []);
 
     useEffect(() => {
-        if (isSetup)
-            return
+        if (!isSetup) {
+            const currentConfig = hotspotConfig[slot]?.isOn;
+            if (currentConfig !== isOn) {
+                hotspotConfig[slot] = {
+                    ...hotspotConfig[slot],
+                    isOn: isOn
+                };
+                updateConfig(hotspotConfig);
+            }
+        }
+    }, [isOn, isSetup]);
 
-        setIsOn(hotspotConfig[slot].isOn = isOn);
-        console.log('after config set:', isOn, "is setup stage?: ", isSetup);
-        // TODO: check what to do here when it returns
-        updateConfig(hotspotConfig)
-    }, [isOn]);
 
     const toggleActive = () => {
         setIsOn(!isOn);
     };
 
     const updateConfig = async (hotspotConfig) => {
-        console.log('Config update called');
-        console.log(hotspotConfig);
+        // console.log('Config update called');
+        // console.log(hotspotConfig);
 
         try {
             const response = await fetch('http://localhost:3001/api/saveState', {
