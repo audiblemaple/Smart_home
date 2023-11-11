@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import hotspotConfig from "../../configs/hotspotConfig.json";
 import "../../styles/Buttons_style.css";
 
 const HotspotButton = ({
@@ -9,10 +8,10 @@ const HotspotButton = ({
                            position,
                            normal,
                            blindOrLightOrCam: initialBlindOrLightOrCam,
+                           initialIsOn
                        }) => {
 
-    const [isOn, setIsOn] = useState(false);
-    const [isSetup, setUpFinish] = useState(true);
+    const [isOn, setIsOn] = useState(initialIsOn);
 
     const wrapperClass = `fab-wrapper Hotspot`;
     const subButtonClass = "fas";
@@ -33,55 +32,35 @@ const HotspotButton = ({
     const checkboxRef = useRef(null);
     const navigate = useNavigate();
 
-
     useEffect(() => {
-        // Initial setup
-        const currentConfig = hotspotConfig[slot]?.isOn;
-        setIsOn(currentConfig);
-        setUpFinish(false); // Mark setup as complete
-    }, []);
-
-    useEffect(() => {
-        if (!isSetup) {
-            const currentConfig = hotspotConfig[slot]?.isOn;
-            if (currentConfig !== isOn) {
-                hotspotConfig[slot] = {
-                    ...hotspotConfig[slot],
-                    isOn: isOn
-                };
-                updateConfig(hotspotConfig);
-            }
-        }
-    }, [isOn, isSetup]);
+        updateConfig(slot, isOn)
+    }, [isOn]);
 
 
     const toggleActive = () => {
         setIsOn(!isOn);
     };
 
-    const updateConfig = async (hotspotConfig) => {
-        // console.log('Config update called');
-        // console.log(hotspotConfig);
-
+    const updateConfig = async (slot, isOnValue) => {
         try {
-            const response = await fetch('http://localhost:3001/api/saveState', {
+            const response = await fetch('http://localhost:3001/api/config', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(hotspotConfig),
+                body: JSON.stringify({ slot: slot, isOn: isOnValue }),
             });
 
-            if (!response.ok)
+            if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
-
+            }
 
             const data = await response.json();
-            console.log('Config updated:', data);
         } catch (error) {
             console.error('Error updating config:', error);
         }
     };
+
 
     const handleLightButtonClick = () => {
         console.log('toggle active called');

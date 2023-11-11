@@ -4,7 +4,7 @@
     "data-position": "-4.8m 1.1m 3.8m",
     "data-normal": "0m 1m 0m",
     "type": "light",
-    "isOn": false
+    "isOn": true
   },
   "hotspot-2": {
     "name": "living room blinds",
@@ -39,14 +39,14 @@
     "data-position": "-2.8m 1.1m 3.2m",
     "data-normal": "0m 1m 0m",
     "type": "light",
-    "isOn": false
+    "isOn": true
   },
   "hotspot-7": {
     "name": "room 2",
     "data-position": "-0.5m 1.1m 3.2m",
     "data-normal": "0m 1m 0m",
     "type": "light",
-    "isOn": false
+    "isOn": true
   },
   "hotspot-8": {
     "name": "room 1",
