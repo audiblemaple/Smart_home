@@ -35,10 +35,7 @@ const HotspotButton = ({
 
 
     useEffect(() => {
-        Object.keys(hotspotConfig).forEach((key) => {
-            if (key === slot)
-                setIsOn(hotspotConfig[key].isOn)
-        });
+        setIsOn(hotspotConfig[slot].isOn)
         console.log('first config set:', isOn);
         setUpFinish(false)
     }, []);
@@ -46,12 +43,11 @@ const HotspotButton = ({
     useEffect(() => {
         if (isSetup)
             return
-        Object.keys(hotspotConfig).forEach((key) => {
-            if (key === slot)
-                setIsOn(hotspotConfig[key].isOn = isOn);
-        });
+
+        setIsOn(hotspotConfig[slot].isOn = isOn);
         console.log('after config set:', isOn, "is setup stage?: ", isSetup);
-        updateConfig()
+        // TODO: check what to do here when it returns
+        updateConfig(hotspotConfig)
     }, [isOn]);
 
     const toggleActive = () => {
@@ -60,9 +56,10 @@ const HotspotButton = ({
 
     const updateConfig = async (hotspotConfig) => {
         console.log('Config update called');
+        console.log(hotspotConfig);
 
         try {
-            const response = await fetch('/api/saveState', {
+            const response = await fetch('http://localhost:3001/api/saveState', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,10 +67,9 @@ const HotspotButton = ({
                 body: JSON.stringify(hotspotConfig),
             });
 
-            if (!response.ok) {
+            if (!response.ok)
                 throw new Error(`HTTP error! Status: ${response.status}`);
 
-            }
 
             const data = await response.json();
             console.log('Config updated:', data);
@@ -85,7 +81,7 @@ const HotspotButton = ({
     const handleLightButtonClick = () => {
         console.log('toggle active called');
         if (initialBlindOrLightOrCam === 'light' || blindOrLightOrCam === 'light_off')
-            toggleActive()
+            toggleActive();
     };
 
     const handleCheckboxClick = async (e) => {
