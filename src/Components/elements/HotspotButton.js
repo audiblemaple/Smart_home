@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import "../../styles/Buttons_style.css";
+import FloatingActionButton from "./FloatingActionButton";
 
 const HotspotButton = ({
                            slot,
@@ -86,6 +87,34 @@ const HotspotButton = ({
         modelViewer.setAttribute('camera-orbit', '30deg 60deg 10m');
     };
 
+    const handleMouseDownAction3 = async () => {
+        // Send 'open' request for fab-action-3
+        // You might need to modify the URL and body according to your API
+        await sendControlRequest('open');
+    };
+
+    const handleMouseUpAction3 = async () => {
+        // Send 'stop' request for fab-action-3
+        await sendControlRequest('stop');
+    };
+
+    const handleMouseDownAction4 = async () => {
+        // Send 'close' request for fab-action-4
+        await sendControlRequest('close');
+    };
+
+    const handleMouseUpAction4 = async () => {
+        // Send 'stop' request for fab-action-4
+        await sendControlRequest('stop');
+    };
+
+    const sendControlRequest = async (action) => {
+        // Replace with your actual request logic
+        console.log(`Sending request: ${action}`);
+        // Add your fetch request logic here
+    };
+
+
     return (
         <div
             className={wrapperClass}
@@ -109,12 +138,16 @@ const HotspotButton = ({
             <div className="fab-wheel">
                 {blindOrLightOrCam === 'blind' && (
                     <>
-                        <a  className="fab-action fab-action-3">
-                            <i className={subButtonClass}></i>
-                        </a>
-                        <a className="fab-action fab-action-4">
-                            <i className={subButtonClass}></i>
-                        </a>
+                        <FloatingActionButton
+                            actionType="open"
+                            slot={slot}
+                            className="fab-action-3"
+                        />
+                        <FloatingActionButton
+                            actionType="close"
+                            slot={slot}
+                            className="fab-action-4"
+                        />
                     </>
                 )}
                 {blindOrLightOrCam === 'light' && (

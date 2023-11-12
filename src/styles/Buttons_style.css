@@ -120,6 +120,8 @@
     box-shadow: 0 5px 20px 5px rgba(255, 245, 163, 0.57);
     transition: all 0.3s ease;
     opacity: 0;
+    cursor: pointer;
+    transform: rotateZ(-45deg);
 }
 
 .fab-checkbox:checked ~ .fab-wheel .fab-action {
@@ -135,8 +137,7 @@
 .fab-wheel .fab-action-1 {
     right: -1rem;
     top: 0;
-    cursor: pointer;
-    transform: rotateZ(-45deg);
+
     background:
             rgba(255, 245, 163, 0.18)
             url("data:image/svg+xml,%3Csvg style='color: rgb(255, 245, 163);' xmlns='http://www.w3.org/2000/svg' width='30px' height='30px' fill='currentColor' class='bi bi-sun' viewBox='0 0 16 16'%3E%3Cpath d='M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z' fill='%23ffdd00'%3E%3C/path%3E%3C/svg%3E")
@@ -144,10 +145,8 @@
             center;
 }
 .fab-wheel .fab-action-2 {
-    transform: rotateZ(-45deg);
     left: 0;
     bottom: -1rem;
-    cursor: pointer;
     background:
             url('data:image/svg+xml,<svg style="color: rgb(0, 0, 0);" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" fill="%23000000"></path></svg>')
             no-repeat
@@ -156,8 +155,6 @@
 .fab-wheel .fab-action-3 {
     right: 3rem;
     top: -1.5rem;
-    cursor: pointer;
-    transform: rotateZ(-45deg);
     background:
             url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-caret-up-fill' viewBox='0 0 16 16'%3E%3Cpath d='m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z'/%3E%3C/svg%3E")
             no-repeat
@@ -166,8 +163,6 @@
 .fab-wheel .fab-action-4 {
     left: -1.5rem;
     bottom: 3rem;
-    cursor: pointer;
-    transform: rotateZ(-45deg);
     background:
             url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-caret-down-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E")
             no-repeat
@@ -176,8 +171,6 @@
 .fab-wheel .fab-action-5 {
     right: -1.5rem;
     top: -5.2rem;
-    cursor: pointer;
-    transform: rotateZ(-45deg);
     background:
             url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>')
             no-repeat
@@ -186,8 +179,6 @@
 .fab-wheel .fab-action-6, .fab-wheel .fab-action-8 {
     right: 2.4rem;
     top: -4.5rem;
-    cursor: pointer;
-    transform: rotateZ(-45deg);
     background:
             url('data:image/svg+xml,<svg width="35" height="35" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 15V9C1 5.68629 3.68629 3 7 3H17C20.3137 3 23 5.68629 23 9V15C23 18.3137 20.3137 21 17 21H7C3.68629 21 1 18.3137 1 15Z" stroke="currentColor" stroke-width="1.5"/><path d="M9 9C10.6569 9 12 10.3431 12 12C12 13.6569 10.6569 15 9 15C7.34315 15 6 13.6569 6 12C6 10.3431 7.34315 9 9 9Z" stroke="currentColor" stroke-width="1.5"/><path d="M14 15V9L18 15V9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>')
             no-repeat
@@ -203,8 +194,6 @@
 .fab-wheel .fab-action-7 {
     right: 2.9rem;
     top: -0.5rem;
-    cursor: pointer;
-    transform: rotateZ(-45deg);
     background:
             url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle"><line x1="8" y1="12" x2="16" y2="12"></line></svg>')
             no-repeat
