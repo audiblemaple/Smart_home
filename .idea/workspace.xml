@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="finally, button state gets fetched from server, and updated when state changes">
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/FloatingActionButton.js" afterDir="false" />
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="added blinds control functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/Buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Buttons_style.css" afterDir="false" />
@@ -152,7 +151,10 @@
       <workItem from="1699713363482" duration="6000" />
       <workItem from="1699714851934" duration="1000" />
       <workItem from="1699733550202" duration="21000" />
-      <workItem from="1699782762476" duration="4794000" />
+      <workItem from="1699782762476" duration="5056000" />
+      <workItem from="1699825914030" duration="3000" />
+      <workItem from="1699898276457" duration="544000" />
+      <workItem from="1699902416808" duration="3558000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -346,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699711214562</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added blinds control functionality">
+      <option name="closed" value="true" />
+      <created>1699789451367</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1699789451367</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,6 +394,7 @@
     <MESSAGE value="working button states save to and from server" />
     <MESSAGE value="working button states save to and from server, before transferring this functionality to the server side" />
     <MESSAGE value="finally, button state gets fetched from server, and updated when state changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="finally, button state gets fetched from server, and updated when state changes" />
+    <MESSAGE value="added blinds control functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added blinds control functionality" />
   </component>
 </project>

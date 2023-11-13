@@ -55,7 +55,6 @@ const HotspotButton = ({
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
-
             const data = await response.json();
         } catch (error) {
             console.error('Error updating config:', error);
@@ -87,33 +86,6 @@ const HotspotButton = ({
         modelViewer.setAttribute('camera-orbit', '30deg 60deg 10m');
     };
 
-    const handleMouseDownAction3 = async () => {
-        // Send 'open' request for fab-action-3
-        // You might need to modify the URL and body according to your API
-        await sendControlRequest('open');
-    };
-
-    const handleMouseUpAction3 = async () => {
-        // Send 'stop' request for fab-action-3
-        await sendControlRequest('stop');
-    };
-
-    const handleMouseDownAction4 = async () => {
-        // Send 'close' request for fab-action-4
-        await sendControlRequest('close');
-    };
-
-    const handleMouseUpAction4 = async () => {
-        // Send 'stop' request for fab-action-4
-        await sendControlRequest('stop');
-    };
-
-    const sendControlRequest = async (action) => {
-        // Replace with your actual request logic
-        console.log(`Sending request: ${action}`);
-        // Add your fetch request logic here
-    };
-
 
     return (
         <div
@@ -121,7 +93,7 @@ const HotspotButton = ({
             slot={slot}
             data-position={position}
             data-normal={normal}
-            data-visibility-attribute="visible"
+            // data-visibility-attribute="visible"
         >
             <input
                 ref={checkboxRef}
@@ -152,12 +124,6 @@ const HotspotButton = ({
                 )}
                 {blindOrLightOrCam === 'light' && (
                     <>
-                        {/*<a className="fab-action fab-action-1">*/}
-                        {/*    <i className={subButtonClass}></i>*/}
-                        {/*</a>*/}
-                        {/*<a className="fab-action fab-action-2">*/}
-                        {/*    <i className={subButtonClass}></i>*/}
-                        {/*</a>*/}
                     </>
                 )}
                 {blindOrLightOrCam === 'light_off' && (
@@ -173,7 +139,7 @@ const HotspotButton = ({
                         <a className="fab-action fab-action-5">
                             <i className={subButtonClass}></i>
                         </a>
-                        <a className={`fab-action ${isOn ? 'fab-action-8' : 'fab-action-6'}`} onClick={toggleActive}>
+                        <a className={`fab-action ${isOn ? 'fab-action-6' : 'fab-action-8'}`} onClick={toggleActive}>
                             <i className={subButtonClass}></i>
                         </a>
                         <a className="fab-action fab-action-7">
