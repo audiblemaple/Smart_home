@@ -93,7 +93,6 @@ const HotspotButton = ({
             slot={slot}
             data-position={position}
             data-normal={normal}
-            // data-visibility-attribute="visible"
         >
             <input
                 ref={checkboxRef}

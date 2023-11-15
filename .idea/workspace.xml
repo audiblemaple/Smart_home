@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Fixed swapped AC states&#10;Visual improvements">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Buttons_style.css" afterDir="false" />
-    </list>
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="minor css improvements" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +151,7 @@
       <workItem from="1699825914030" duration="3000" />
       <workItem from="1699898276457" duration="544000" />
       <workItem from="1699902416808" duration="3649000" />
-      <workItem from="1700074578626" duration="1469000" />
+      <workItem from="1700074578626" duration="1804000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -365,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699906076441</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="minor css improvements">
+      <option name="closed" value="true" />
+      <created>1700076324435</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1700076324435</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,6 +409,7 @@
     <MESSAGE value="finally, button state gets fetched from server, and updated when state changes" />
     <MESSAGE value="added blinds control functionality" />
     <MESSAGE value="Fixed swapped AC states&#10;Visual improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed swapped AC states&#10;Visual improvements" />
+    <MESSAGE value="minor css improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor css improvements" />
   </component>
 </project>
