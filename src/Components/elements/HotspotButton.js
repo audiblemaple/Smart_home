@@ -113,12 +113,12 @@ const HotspotButton = ({
                         <FloatingActionButton
                             actionType="open"
                             slot={slot}
-                            className="fab-action-3"
+                            className="fab-action-1"
                         />
                         <FloatingActionButton
                             actionType="close"
                             slot={slot}
-                            className="fab-action-4"
+                            className="fab-action-2"
                         />
                     </>
                 )}
@@ -136,13 +136,13 @@ const HotspotButton = ({
                 )}
                 {blindOrLightOrCam === 'ac' && (
                     <>
+                        <a className="fab-action fab-action-3">
+                            <i className={subButtonClass}></i>
+                        </a>
+                        <a className={`fab-action ${isOn ? 'fab-action-4' : 'fab-action-6'}`} onClick={toggleActive}>
+                            <i className={subButtonClass}></i>
+                        </a>
                         <a className="fab-action fab-action-5">
-                            <i className={subButtonClass}></i>
-                        </a>
-                        <a className={`fab-action ${isOn ? 'fab-action-6' : 'fab-action-8'}`} onClick={toggleActive}>
-                            <i className={subButtonClass}></i>
-                        </a>
-                        <a className="fab-action fab-action-7">
                             <i className={subButtonClass}></i>
                         </a>
                     </>
