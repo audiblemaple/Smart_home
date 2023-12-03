@@ -1,7 +1,7 @@
 import React from 'react';
 import ModelViewer from '../elements/ModelViewer';
-import Banner from '../elements/Banner';
-import PerspectiveButton from '../elements/PerspectiveButton';
+import Banner from '../elements/banner/Banner';
+import Toolbar from '../elements/toolbar/Toolbar';
 
 const HouseView = () => {
     return (
@@ -10,7 +10,7 @@ const HouseView = () => {
                 <ModelViewer />
             </div>
             <Banner text="Smart home" />
-            <PerspectiveButton />
+            <Toolbar />
         </div>
     );
 }

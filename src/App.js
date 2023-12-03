@@ -1,7 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HouseView from "./Components/screens/HouseView";
-import CameraFeed from "./Components/elements/CameraFeed";
-import './styles/App.css';
+import CameraFeed from "./Components/elements/cameraFeed/CameraFeed";
 import "./styles/general_style.css"
 
 function App() {

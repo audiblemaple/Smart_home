@@ -1,4 +1,4 @@
-import HotspotButton from "./HotspotButton";
+import HotspotButton from "./HotspotButton/HotspotButton";
 import React, {useEffect, useState} from "react";
 
 function ModelViewer() {
@@ -14,7 +14,7 @@ function ModelViewer() {
                 return response.json();
             })
             .then(data => {
-                console.log('Fetched hotspot config:', data); // Log the fetched data
+                // console.log('Fetched hotspot config:', data); // Log the fetched data
                 setHotspotConfig(data);
             })
             .catch(error => console.error('Error fetching config:', error));
@@ -45,7 +45,8 @@ function ModelViewer() {
                     position          = {hotspot['data-position']}
                     normal            = {hotspot['data-normal']}
                     blindOrLightOrCam = {hotspot.type}
-                    initialIsOn              = {hotspot.isOn}
+                    initialIsOn       = {hotspot.isOn}
+                    nodeID            = {hotspot.nodeID}
                 />
             ))}
         </model-viewer>

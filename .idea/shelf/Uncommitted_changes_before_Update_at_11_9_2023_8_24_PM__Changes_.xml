@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Update_at_11_9_2023_8_24_PM_[Changes]" date="1699554249383" recycled="true" deleted="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_9_2023_8_24_PM_[Changes]/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 11/9/2023 8:24 PM [Changes]" />
-  <binary>
-    <option name="BEFORE_PATH" value="public/Background_skybox.hdr" />
-    <option name="AFTER_PATH" value="public/environment/Background_skybox.hdr" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_9_2023_8_24_PM_[Changes]/Background_skybox.hdr" />
-  </binary>
-</changelist>
