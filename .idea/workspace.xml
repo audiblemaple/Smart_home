@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Refactored styles and components.&#10;and added a new button.">
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="refactored the CameraFeed component to Externalpage.&#10;Added the mesh control panel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/cameraFeed/CameraFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ExternalPage/ExternalPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/cameraFeed/camera_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ExternalPage/External_page_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/toolbar_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/toolbar_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/temp/temp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/temp/temp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +167,7 @@
       <workItem from="1701591654652" duration="19000" />
       <workItem from="1701617261843" duration="2955000" />
       <workItem from="1701809140105" duration="1155000" />
+      <workItem from="1701810324296" duration="295000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -405,7 +401,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701620204362</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="refactored the CameraFeed component to Externalpage.&#10;Added the mesh control panel">
+      <option name="closed" value="true" />
+      <created>1701810505642</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1701810505642</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,6 +452,7 @@
     <MESSAGE value="minor css improvements" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="Refactored styles and components.&#10;and added a new button." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored styles and components.&#10;and added a new button." />
+    <MESSAGE value="refactored the CameraFeed component to Externalpage.&#10;Added the mesh control panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored the CameraFeed component to Externalpage.&#10;Added the mesh control panel" />
   </component>
 </project>
