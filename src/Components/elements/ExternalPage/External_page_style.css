@@ -9,10 +9,10 @@ iframe{
     position: absolute;
     top: 30px;
     right: 30px;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     z-index: 1000;
-    border-radius: 40px;
+    border-radius: 50%;
     border: none;
     cursor: pointer;
     background:

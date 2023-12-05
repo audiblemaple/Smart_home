@@ -49,11 +49,11 @@ const HotspotButton = ({
 
     function turn_on_test(action) {
         if(nodeID === "????"){
-            console.log("Node ID still unknown... add it to the config please!");
+            console.log("Node ID still unknown... add it to the config!");
             return;
         }
         console.log(`sending: ${action} to: ${nodeID}`)
-        const url = `http://192.168.1.114/dev?id=${nodeID}&act=${action}`;
+        const url = `http://192.168.1.115/comm?id=${nodeID}&act=${action}`;
 
         fetch(url, { mode: 'no-cors' })
             .catch(error => console.error('Error:', error));

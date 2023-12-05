@@ -1,31 +1,34 @@
 import React from 'react';
-import "./toolbar_style.css"
+import { useNavigate } from 'react-router-dom';
+import "./toolbar_style.css";
 
-// Make it float in from the side...
-class Toolbar extends React.Component {
-    defaultView = () => {
+function Toolbar() {
+    const navigate = useNavigate();
+
+    const defaultView = () => {
         const modelViewer = document.getElementById('model');
         modelViewer.setAttribute('camera-target', "0m 0m 0m");
         modelViewer.setAttribute('camera-orbit', '0deg 0deg 28m');
     }
 
-
-    render() {
-        return (
-            <div className="toolbar">
-                <button
-                    id="defaultViewButton"
-                    className="toolbar-button"
-                    onClick={this.defaultView}>
-                </button>
-                <button
-                    id="devPortalButton"
-                    className="toolbar-button"
-                    onClick={this.defaultView}>
-                </button>
-            </div>
-        );
+    const meshControlPanel = () => {
+        navigate('/mesh');
     }
+
+    return (
+        <div className="toolbar">
+            <button
+                id="defaultViewButton"
+                className="toolbar-button"
+                onClick={defaultView}>
+            </button>
+            <button
+                id="meshControlPanelButton"
+                className="toolbar-button"
+                onClick={meshControlPanel}>
+            </button>
+        </div>
+    );
 }
 
 export default Toolbar;

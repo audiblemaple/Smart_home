@@ -4,29 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="minor changes">
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/toolbar_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_9_2023_8_24_PM_[Changes]/Background_skybox.hdr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_9_2023_8_24_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_9_2023_8_24_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Refactored styles and components.&#10;and added a new button.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Home_model.glb" beforeDir="false" afterPath="$PROJECT_DIR$/public/Home_model.glb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Banner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/banner/Banner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/CameraFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/cameraFeed/CameraFeed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/PerspectiveButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configs/hotspotConfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/Buttons_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/banner_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/camera_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/cameraFeed/camera_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/default_view_button.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/cameraFeed/CameraFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ExternalPage/ExternalPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/cameraFeed/camera_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ExternalPage/External_page_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/toolbar_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/toolbar_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +170,8 @@
       <workItem from="1701507688637" duration="1043000" />
       <workItem from="1701510990084" duration="2167000" />
       <workItem from="1701591654652" duration="19000" />
-      <workItem from="1701617261843" duration="2750000" />
+      <workItem from="1701617261843" duration="2955000" />
+      <workItem from="1701809140105" duration="1155000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -411,7 +397,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700076509900</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Refactored styles and components.&#10;and added a new button.">
+      <option name="closed" value="true" />
+      <created>1701620204362</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1701620204362</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,6 +447,7 @@
     <MESSAGE value="Fixed swapped AC states&#10;Visual improvements" />
     <MESSAGE value="minor css improvements" />
     <MESSAGE value="minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <MESSAGE value="Refactored styles and components.&#10;and added a new button." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored styles and components.&#10;and added a new button." />
   </component>
 </project>
