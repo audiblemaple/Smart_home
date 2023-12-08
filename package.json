@@ -1,8 +1,8 @@
 {
-  "name": "smart_home_try_2",
+  "name": "smart_home",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://192.168.1.130",
+  "proxy": "http://192.168.1.159",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

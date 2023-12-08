@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment=" update the light toggle action">
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="updated config ip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +169,7 @@
       <workItem from="1701617261843" duration="2955000" />
       <workItem from="1701809140105" duration="1155000" />
       <workItem from="1701810324296" duration="331000" />
-      <workItem from="1702023758830" duration="897000" />
+      <workItem from="1702023758830" duration="1379000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -426,7 +427,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702024031394</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="updated config ip">
+      <option name="closed" value="true" />
+      <created>1702024807559</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1702024807559</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,6 +481,7 @@
     <MESSAGE value="refactored the CameraFeed component to Externalpage.&#10;Added the mesh control panel" />
     <MESSAGE value="added backup for the esp mesh firmware." />
     <MESSAGE value=" update the light toggle action" />
-    <option name="LAST_COMMIT_MESSAGE" value=" update the light toggle action" />
+    <MESSAGE value="updated config ip" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated config ip" />
   </component>
 </project>
