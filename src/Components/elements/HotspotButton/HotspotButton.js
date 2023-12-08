@@ -40,14 +40,14 @@ const HotspotButton = ({
 
     useEffect(() => {
         updateConfig(slot, isOn);
-        turn_on_test(isOn ? 'turn_on' : 'turn_off')
+        sendCommand("toggle_light")
     }, [isOn]);
 
     const toggleActive = () => {
         setIsOn(!isOn);
     };
 
-    function turn_on_test(action) {
+    function sendCommand(action) {
         if(nodeID === "????"){
             console.log("Node ID still unknown... add it to the config!");
             return;
