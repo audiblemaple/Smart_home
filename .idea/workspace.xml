@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="updated config ip">
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="updated config ip&#10;and proxy in the package json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +169,7 @@
       <workItem from="1701617261843" duration="2955000" />
       <workItem from="1701809140105" duration="1155000" />
       <workItem from="1701810324296" duration="331000" />
-      <workItem from="1702023758830" duration="1379000" />
+      <workItem from="1702023758830" duration="2612000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -435,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702024807559</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="updated config ip&#10;and proxy in the package json">
+      <option name="closed" value="true" />
+      <created>1702025315798</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1702025315798</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,7 +465,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Backup &amp; initial commit" />
     <MESSAGE value="backup before video feed" />
     <MESSAGE value="fixed some errors" />
     <MESSAGE value="added camera feed functionality" />
@@ -482,6 +489,7 @@
     <MESSAGE value="added backup for the esp mesh firmware." />
     <MESSAGE value=" update the light toggle action" />
     <MESSAGE value="updated config ip" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated config ip" />
+    <MESSAGE value="updated config ip&#10;and proxy in the package json" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated config ip&#10;and proxy in the package json" />
   </component>
 </project>

@@ -61,7 +61,7 @@ const HotspotButton = ({
 
     const updateConfig = async (slot, isOnValue) => {
         try {
-            const response = await fetch('http://localhost:3001/api/config', {
+            const response = await fetch('http://192.168.1.159:3001/api/config', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
