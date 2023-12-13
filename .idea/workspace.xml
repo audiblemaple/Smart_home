@@ -173,7 +173,7 @@
       <workItem from="1702140577135" duration="5686000" />
       <workItem from="1702146346727" duration="399000" />
       <workItem from="1702463932450" duration="1666000" />
-      <workItem from="1702465695711" duration="594000" />
+      <workItem from="1702465695711" duration="870000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -495,7 +495,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702466016402</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="changed hotspot button command send.">
+      <option name="closed" value="true" />
+      <created>1702466306144</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1702466306144</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

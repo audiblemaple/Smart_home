@@ -6,7 +6,7 @@ function ModelViewer() {
 
 
     useEffect(() => {
-        fetch('http://http://192.168.1.159/:3001/api/config')
+        fetch('http://192.168.1.159:3001/api/config')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
