@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="changed hotspot button command send.">
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="fixed config fetching">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +173,7 @@
       <workItem from="1702140577135" duration="5686000" />
       <workItem from="1702146346727" duration="399000" />
       <workItem from="1702463932450" duration="1666000" />
-      <workItem from="1702465695711" duration="870000" />
+      <workItem from="1702465695711" duration="2078000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -503,7 +503,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702466306144</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fixed config fetching">
+      <option name="closed" value="true" />
+      <created>1702466602574</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1702466602574</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +533,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Added new favicon &#10;Refactored some file names" />
     <MESSAGE value="Updated Readme" />
     <MESSAGE value="Added redirection to Motion URL from camera button" />
     <MESSAGE value="added button creation from a configuration file" />
@@ -550,6 +557,7 @@
     <MESSAGE value="Added toolbar as a hideable menu." />
     <MESSAGE value="improved toolbar." />
     <MESSAGE value="changed hotspot button command send." />
-    <option name="LAST_COMMIT_MESSAGE" value="changed hotspot button command send." />
+    <MESSAGE value="fixed config fetching" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed config fetching" />
   </component>
 </project>
