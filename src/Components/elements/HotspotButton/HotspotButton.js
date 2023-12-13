@@ -39,8 +39,8 @@ const HotspotButton = ({
     const SECOND = 1000;
 
     useEffect(() => {
-        updateConfig(slot, isOn);
-        sendCommand("toggle_light")
+        updateConfig(slot, isOn).then(r => console.log(`updated config for node: ${nodeID}`));
+        sendCommand(isOn ? "turn_on" : "turn_off");
     }, [isOn]);
 
     const toggleActive = () => {
@@ -55,8 +55,7 @@ const HotspotButton = ({
         console.log(`sending: ${action} to: ${nodeID}`)
         const url = `http://192.168.1.115/comm?id=${nodeID}&act=${action}`;
 
-        fetch(url, { mode: 'no-cors' })
-            .catch(error => console.error('Error:', error));
+        fetch(url, {mode: 'no-cors'}).then(r => console.log("command sent"));
     }
 
     const updateConfig = async (slot, isOnValue) => {
