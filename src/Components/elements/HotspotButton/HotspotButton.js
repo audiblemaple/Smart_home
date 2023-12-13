@@ -15,6 +15,7 @@ const HotspotButton = ({
                            nodeID
                        }) => {
     const [isOn, setIsOn] = useState(initialIsOn);
+    const [isSetup, setIsSetUp] = useState(true);
     const [isClickable, setIsClickable] = useState(true);  // State to manage click timeout
 
     const wrapperClass = `fab-wrapper Hotspot`;
@@ -39,6 +40,10 @@ const HotspotButton = ({
     const SECOND = 1000;
 
     useEffect(() => {
+        if (isSetup){
+            setIsSetUp(false);
+            return;
+        }
         updateConfig(slot, isOn).then(r => console.log(`updated config for node: ${nodeID}`));
         sendCommand(isOn ? "turn_on" : "turn_off");
     }, [isOn]);
