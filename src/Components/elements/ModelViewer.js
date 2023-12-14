@@ -1,9 +1,11 @@
 import HotspotButton from "./HotspotButton/HotspotButton";
 import React, {useEffect, useState} from "react";
+import ErrorPopup from "./Popup/ErrorPopup";
 
 function ModelViewer() {
     const [hotspotConfig, setHotspotConfig] = useState({});
 
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         fetch('http://192.168.1.159:3001/api/config')
@@ -47,8 +49,11 @@ function ModelViewer() {
                     blindOrLightOrCam = {hotspot.type}
                     initialIsOn       = {hotspot.isOn}
                     nodeID            = {hotspot.nodeID}
+                    setErrorMessage   = {setErrorMessage}
                 />
             ))}
+            {errorMessage &&  <ErrorPopup message={errorMessage} />}
+
         </model-viewer>
     );
 }

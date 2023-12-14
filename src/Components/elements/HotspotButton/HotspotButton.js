@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import "./Buttons_style.css";
 import FloatingActionButton from "../FloatingActionButton";
 
-
 // TODO: fix bug where any click on the checkbox will turn on the light, i need to check if its a light.
 const HotspotButton = ({
                            slot,
@@ -12,7 +11,8 @@ const HotspotButton = ({
                            normal,
                            blindOrLightOrCam: initialBlindOrLightOrCam,
                            initialIsOn,
-                           nodeID
+                           nodeID,
+                           setErrorMessage
                        }) => {
     const [isOn, setIsOn] = useState(initialIsOn);
     const [isSetup, setIsSetUp] = useState(true);
@@ -44,7 +44,11 @@ const HotspotButton = ({
             setIsSetUp(false);
             return;
         }
-        updateConfig(slot, isOn).then(r => console.log(`updated config for node: ${nodeID}`));
+        updateConfig(slot, isOn)
+            .then(r => console.log(`updated config for node: ${nodeID}`))
+            .catch(error => {
+                console.error(`Error updating config for node: ${nodeID}`, error);
+            });
         sendCommand(isOn ? "turn_on" : "turn_off");
     }, [isOn]);
 
@@ -60,7 +64,15 @@ const HotspotButton = ({
         console.log(`sending: ${action} to: ${nodeID}`)
         const url = `http://192.168.1.115/comm?id=${nodeID}&act=${action}`;
 
-        fetch(url, {mode: 'no-cors'}).then(r => console.log("command sent"));
+        fetch(url, {mode: 'no-cors'})
+            .then(r => console.log("command sent"))
+            .catch(error => {
+                setErrorMessage("An error occurred");
+                setTimeout(() => {
+                    setErrorMessage("");
+                }, 3000);
+                console.error(`Error sending command to node: ${nodeID}`, error);
+            });
     }
 
     const updateConfig = async (slot, isOnValue) => {
@@ -78,6 +90,10 @@ const HotspotButton = ({
             }
             await response.json();
         } catch (error) {
+            setErrorMessage("An error occurred ");
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 3000);
             console.error('Error updating config:', error);
         }
     };
