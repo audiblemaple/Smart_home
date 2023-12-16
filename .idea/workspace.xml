@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="fixed localhost call">
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/Modal/Modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" afterDir="false" />
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Added an error popup, new button and edit button modals.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/Buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/Buttons_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/toolbar_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/toolbar_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +180,10 @@
       <workItem from="1702465695711" duration="3688000" />
       <workItem from="1702498783913" duration="9000" />
       <workItem from="1702499751871" duration="4606000" />
-      <workItem from="1702578005401" duration="13848000" />
+      <workItem from="1702578005401" duration="13916000" />
+      <workItem from="1702626061388" duration="2425000" />
+      <workItem from="1702673206017" duration="623000" />
+      <workItem from="1702722111858" duration="4600000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -540,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702468089808</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Added an error popup, new button and edit button modals.">
+      <option name="closed" value="true" />
+      <created>1702594211313</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1702594211313</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +567,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Added redirection to Motion URL from camera button" />
     <MESSAGE value="added button creation from a configuration file" />
     <MESSAGE value="branch removed" />
     <MESSAGE value="removed static files" />
@@ -587,6 +591,7 @@
     <MESSAGE value="changed hotspot button command send." />
     <MESSAGE value="fixed config fetching" />
     <MESSAGE value="fixed localhost call" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed localhost call" />
+    <MESSAGE value="Added an error popup, new button and edit button modals." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added an error popup, new button and edit button modals." />
   </component>
 </project>

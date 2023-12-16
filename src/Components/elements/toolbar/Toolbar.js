@@ -23,10 +23,22 @@ function Toolbar({openModal, closeModal, setChildren}) {
         setIsClosed(!isClosed);
     };
 
+    function fetchNodeData() {
+        fetch('http://192.168.1.115/getNodes')
+            .then(response =>
+                response.json()
+            )
+            .then(data => {
+                console.log("Got node data", data);
+            })
+            .catch(error =>
+                console.error('Error fetching nodes:', error)
+            );
+    }
+
     const handleNewButton = () => {
         setChildren(
             <div className="modal" onClick={(e) => e.stopPropagation()}>
-                <div className="exit" onClick={closeModal}></div>
                 <h2>Add new button</h2>
                 <a>nodeId</a>
                 <select className="select-node">
@@ -37,7 +49,7 @@ function Toolbar({openModal, closeModal, setChildren}) {
                     <option value='toggle_light'>Toggle light</option>
                     <option value='blink'>blink</option>
                 </select>
-                <a>nodeId</a>
+                <a>Name</a>
                 <select className="select-node">
                     <option value='turn_on'>Turn On</option>
                     <option value='turn_off'>Turn Off</option>
@@ -46,9 +58,9 @@ function Toolbar({openModal, closeModal, setChildren}) {
                     <option value='toggle_light'>Toggle light</option>
                     <option value='blink'>blink</option>
                 </select>
-                <button>
-                    submit
-                </button>
+                <button className="submit" onClick={closeModal}> submit </button>
+                <button className="exit"   onClick={closeModal}> Cancel </button>
+
             </div>
         );
         openModal();

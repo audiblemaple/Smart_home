@@ -101,8 +101,8 @@
     bottom: 0;
     right: 0;
     border: none;
-    width: 10px;
-    height: 10px;
+    width: 1px;
+    height: 1px;
     transition: all 0.2s ease-in-out;
     transform-origin: bottom right;
 }

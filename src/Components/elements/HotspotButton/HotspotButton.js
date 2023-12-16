@@ -61,17 +61,29 @@ const HotspotButton = ({
             console.log("Node ID still unknown... add it to the config!");
             return;
         }
-        console.log(`sending: ${action} to: ${nodeID}`)
-        const url = `http://192.168.1.115/comm?id=${nodeID}&act=${action}`;
+        console.log(`sending: ${action} to: ${nodeID}`);
 
-        fetch(url, {mode: 'no-cors'})
-            .then(r => console.log("command sent"))
-            .catch(error => {
+        const url = 'http://192.168.1.159:3001/api/command';
+        const data = {
+            nodeID: nodeID,
+            action: action,
+        };
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => console.log('Success:', data))
+            .catch((error) => {
+                console.error(`Error sending command to node: ${nodeID}`, error);
                 setErrorMessage("An error occurred");
                 setTimeout(() => {
                     setErrorMessage("");
                 }, 3000);
-                console.error(`Error sending command to node: ${nodeID}`, error);
             });
     }
 
