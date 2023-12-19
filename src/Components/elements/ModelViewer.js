@@ -2,10 +2,11 @@ import HotspotButton from "./HotspotButton/HotspotButton";
 import React, {useEffect, useState} from "react";
 import ErrorPopup from "./Popup/ErrorPopup";
 
-function ModelViewer() {
+function ModelViewer( {tempButton, setTempButton}) {
     const [hotspotConfig, setHotspotConfig] = useState({});
 
     const [errorMessage, setErrorMessage] = useState('');
+
 
     useEffect(() => {
         fetch('http://192.168.1.159:3001/api/config')
@@ -27,15 +28,15 @@ function ModelViewer() {
             id="model"
             src="Home_model.glb"
             camera-controls=""
-            exposure="0.6"
+            exposure="0.65"
             environment-image="Background_skybox.hdr"
             skybox-image="Background_skybox.hdr"
             shadow-intensity="2"
             shadow-softness="1"
             disable-tap=""
             interaction-prompt="none"
-            camera-orbit="30deg 60deg 30m"
-            max-camera-orbit="40deg 45deg 40m"
+            camera-orbit="30deg 60deg 35m"
+            max-camera-orbit="40deg 85deg 90m"
             max-field-of-view="30deg"
             min-camera-orbit="0deg 0deg 10m"
             min-field-of-view="30deg"
@@ -52,6 +53,8 @@ function ModelViewer() {
                     setErrorMessage   = {setErrorMessage}
                 />
             ))}
+            {/*{console.log("Rendering tempButton: ", tempButton)}*/}
+            {tempButton}
             {errorMessage &&  <ErrorPopup message={errorMessage} />}
 
         </model-viewer>
