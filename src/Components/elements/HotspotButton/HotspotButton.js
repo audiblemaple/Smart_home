@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import "./Buttons_style.css";
-import FloatingActionButton from "../FloatingActionButton";
+import FloatingActionButton from "./FloatingActionButton";
 
-// TODO: fix bug where any click on the checkbox will turn on the light, i need to check if its a light.
 const HotspotButton = ({
                            slot,
                            position,
@@ -76,8 +75,14 @@ const HotspotButton = ({
             },
             body: JSON.stringify(data),
         })
-            .then(response => response.json())
-            .then(data => console.log('Success:', data))
+            .then(data => {
+                if (!data.ok){
+                    setErrorMessage("Error sending command");
+                    setTimeout(() => {
+                        setErrorMessage("");
+                    }, 3000);
+                }
+            })
             .catch((error) => {
                 console.error(`Error sending command to node: ${nodeID}`, error);
                 setErrorMessage("An error occurred");
@@ -111,7 +116,7 @@ const HotspotButton = ({
     };
 
     const handleLightButtonClick = () => {
-        if (isClickable && ['light', 'light_off', 'ac', 'blind', 'fab-action-4', 'fab-action-6'].includes(blindOrLightOrCam)) {
+        if (isClickable && ['light', 'light_off'].includes(blindOrLightOrCam)) {
             setIsClickable(false);
             setTimeout(() => setIsClickable(true), 0.4 * SECOND);
 
@@ -167,14 +172,14 @@ const HotspotButton = ({
                 {blindOrLightOrCam === 'blind' && (
                     <>
                         <FloatingActionButton
-                            actionType="open"
-                            slot={slot}
+                            actionType="blind_up"
                             className="fab-action-1"
+                            sendCommand={sendCommand}
                         />
                         <FloatingActionButton
-                            actionType="close"
-                            slot={slot}
+                            actionType="blind_down"
                             className="fab-action-2"
+                            sendCommand={sendCommand}
                         />
                     </>
                 )}

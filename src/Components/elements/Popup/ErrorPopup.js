@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../Popup/popup_style.css';
 
 
-// TODO: fix the error where it only displays once...
+// TODO: make it animated
 function ErrorPopup({ message }) {
     const [showPopup, setShowPopup] = useState(false);
 

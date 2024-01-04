@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import Slider from "../Slider/Slider";
 import "./toolbar_style.css";
 import HotspotButton from "../HotspotButton/HotspotButton";
+import "../Modal/modal_style.css"
+import Dropdown from "../Dropdown/Dropdown";
+import TextField from "../TextField/TextField";
 
-function Toolbar({openModal, closeModal, setChildren, setTempButton}) {
+function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMessage}) {
     const navigate = useNavigate();
     const [isClosed, setIsClosed] = useState(true);
     const toolbarRef = useRef(null); // Ref for the toolbar
@@ -14,6 +17,68 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton}) {
 
     const positionRef = useRef({ x: 0, y: 0, z: 1 });
     const [position, setPosition] = useState({ x: 0, y: 0, z: 1 });
+
+    const [isFirst, setIsFirst] = useState(true);
+    const [nodeID, setNodeID] = useState("Chose a node ID");
+    const [nodeName, setNodeName] = useState("");
+    const [type, setType] = useState("Choose button type");
+    const buttonTypeList = [
+        "light",
+        "blind",
+        "cam",
+        "ac"
+    ];
+
+    const [modalError, setmodalError] = useState("");
+
+    useEffect(() => {
+        if (isFirst){
+            setIsFirst(false);
+            return
+        }
+        const newButton = (
+            <HotspotButton
+                key={`hotspot-${Date.now()}`} // each time a different key for the new button to re-render
+                slot="hotspot-19"
+                position={`${position.x}m ${position.z}m ${position.y}m`}
+                normal="0m 1m 0m"
+                blindOrLightOrCam={type}
+                initialIsOn={false}
+                nodeID={nodeID}
+            />
+        );
+        setTempButton(newButton);
+    }, [position]);
+
+
+
+    const [nodeIdList, setnodeIdList] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const fetchNodeIds = async () => {
+        setIsLoading(true);
+        try {
+            const response = await fetch('http://192.168.1.115/getNodes');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const json = await response.json();
+            if (json.subs)
+                setnodeIdList(json.subs);
+            else
+                setErrorMessage("No nodes found. please connect a node");
+                setTimeout(() => {
+                    setErrorMessage("");
+                }, 3000);
+        } catch (error) {
+            setErrorMessage(error.message);
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 3000);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     const defaultView = () => {
         const modelViewer = document.getElementById('model');
@@ -33,53 +98,53 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton}) {
         const modelViewer = document.getElementById('model');
         modelViewer.setAttribute('camera-target', "0 0 0");
         modelViewer.setAttribute('camera-orbit', '15deg 50deg 35m');
-
+        setTempButton(null);
         closeModal();
-    }
-
-    function fetchNodeData() {
-        fetch('http://192.168.1.115/getNodes')
-            .then(response =>
-                response.json()
-            )
-            .then(data => {
-                console.log("Got node data", data);
-            })
-            .catch(error =>
-                console.error('Error fetching nodes:', error)
-            );
     }
 
     const handlePositionChange = (axis, value) => {
         setPosition(prev => {
             const updatedPosition = { ...prev, [axis]: parseFloat(value) };
             positionRef.current = updatedPosition;
-            console.log("Updated Position: ", updatedPosition);
-
-            // Create and set the new HotspotButton with updated position
-            const newButton = (
-                <HotspotButton
-                    key={`hotspot-${Date.now()}`}
-                    slot="hotspot-19"
-                    position={`${updatedPosition.x}m ${updatedPosition.z}m ${updatedPosition.y}m`}
-                    normal="0m 1m 0m"
-                    blindOrLightOrCam="light"
-                    initialIsOn={false}
-                    nodeID="123456789"
-                />
-            );
-            setTempButton(newButton); // Update the tempButton to reflect the new position
 
             return updatedPosition;
         });
     };
 
+    const showError = (error) => {
+        setErrorMessage(error);
+        setTimeout(() => {
+            setErrorMessage("");
+        }, 3000);
+    }
+
     const handleSubmitNewButton = () => {
         setIsSubmited(true);
+
+        console.log(nodeID);
+        if (nodeID === "Chose a node ID"){
+            console.log("bad id");
+            showError("bad ID");
+            return;
+        }
+
+        console.log(nodeName);
+        if (nodeName === ""){
+            console.log("bad type");
+            showError("Empty node name not allowed");
+            return;
+        }
+
+        console.log(type);
+        if (type === "Choose button type"){
+            console.log("bad type");
+            showError("bad type");
+            return;
+        }
         closeModal();
         setTimeout(() => {
             setChildren(
-                <div className={isSubmitted ? "hidden" : "modal"} onClick={(e) => e.stopPropagation()}>
+                <div className="modal" onClick={(e) => e.stopPropagation()}>
                     <h2>{isSubmitted ? "choose location" : "Edit Button"}</h2>
                     X-position ↔
                     <Slider onChange={(value) => handlePositionChange('x', value)} />
@@ -93,8 +158,10 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton}) {
                     </div>
                 </div>
             );
-        }, 1000);
-        openModal();
+            openModal();
+        }, 100);
+
+        setPosition({ x: 0, y: 0, z: 1 });
     }
 
     const handleSavebutton = () => {
@@ -102,50 +169,53 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton}) {
         modelViewer.setAttribute('camera-target', "0 0 0");
         modelViewer.setAttribute('camera-orbit', '15deg 50deg 35m');
         setIsSubmited(false);
+        modelViewer.enableInteraction();
         closeModal();
     }
 
-    const handleNewButton = () => {
-        const modelViewer = document.getElementById('model');
+    const handleNameChange = (event) => {
+        setNodeName(event.target.innerText);
+        console.log(nodeName);
+    }
 
-        modelViewer.setAttribute('camera-target', "0 0 10m");
-        modelViewer.setAttribute('camera-orbit', '0deg 10deg 35m');
-        setChildren(
-            <div className="modal" onClick={(e) => e.stopPropagation()}>
-                <h2>Add new button</h2>
-                {/*<a>nodeId</a>*/}
-                <select className="select-node" >
-                    <option value="Chnode" disabled selected>Chose a node ID</option>
-                    <option value='787656539'>787656539</option>
-                    <option value='787656312'>787656312</option>
-                    <option value='731265612'>731265612</option>
-                    <option value='123363321'>123363321</option>
-                    <option value='120917479'>120917479</option>
-                    <option value='214297209'>214297209</option>
-                </select>
-                {/*<a>Name</a>*/}
-                <input className="node-name" type="text" placeholder="Choose a name"></input>
-                {/*<a>Choose type</a>*/}
-                <select className="select-type" >
-                    <option value="Chnode" disabled selected>Choose button type</option>
-                    <option value='light'>light          </option>
-                    <option value='blind'>blind          </option>
-                    <option value='cam'>  camera         </option>
-                    <option value='ac'>   air conditioner</option>
-                </select>
-                <div className="buttons-container">
-                    <button onClick={handleCloseModal}> Cancel </button>
-                    <button onClick={handleSubmitNewButton}> submit </button>
+
+    useEffect(() => {
+        console.log({ nodeID, nodeName, type });
+    }, [nodeID, nodeName, type]);
+
+    const handleNewButton = () => {
+
+        // TODO: fetch node ids and if no node ids then print an error.
+        fetchNodeIds().then(r => {
+            const modelViewer = document.getElementById('model');
+            modelViewer.setAttribute('camera-target', "0 0 10m");
+            modelViewer.setAttribute('camera-orbit', '0deg 10deg 35m');
+
+            setChildren(
+                <div className="modal" onClick={(e) => e.stopPropagation()}>
+                    <h2>Add new button</h2>
+
+                    <Dropdown initialText={nodeID} list={buttonTypeList} setSelectedElement={setNodeID}/>
+
+                    <TextField setText={setNodeName}></TextField>
+
+                    <Dropdown initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
+
+                    <div className="buttons-container">
+                        <button onClick={handleCloseModal}>       Cancel </button>
+                        <button onClick={handleSubmitNewButton} > Submit </button>
+                    </div>
+                    <a>{modalError}</a>
                 </div>
-            </div>
-        );
-        openModal();
+            );
+            openModal();
+        });
     }
 
     const handleEditButton = () => {
         closeModal();
         setChildren(
-            <div className={isSubmitted ? "hidden" : "modal"} onClick={(e) => e.stopPropagation()}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
                 <h2>{isSubmitted ? "choose location" : "Edit Button"}</h2>
             </div>
         );
@@ -156,23 +226,14 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton}) {
     useEffect(() => {
         function handleClickOutside(event) {
             if (toolbarRef.current && !toolbarRef.current.contains(event.target)) {
-                setIsClosed(true); // Close the toolbar if click is outside
+                setIsClosed(true); // Close the toolbar if clicked outside and its open
             }
         }
-
-        // Bind the event listener
         document.addEventListener("click", handleClickOutside);
         return () => {
-            // Unbind the event listener on clean up
             document.removeEventListener("click", handleClickOutside);
         };
     }, [toolbarRef]);
-
-
-    // TODO:
-    //     1. button is not being saved.
-    // 2. no error handling.
-    // 3. canceling the process should remove the button.
 
     return (
         <div ref={toolbarRef} className={toolbarClass} onClick={toggleToolbar}>

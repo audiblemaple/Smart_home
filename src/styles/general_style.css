@@ -1,3 +1,20 @@
+*{
+    /* Disable context menu on mobile when the button is being held down */
+    -webkit-touch-callout: none;
+    user-select: none;
+    font-size: 17px;
+}
+:root {
+    --container-height: 200px;
+    --container-height-inverted: -200px;
+    --element-height: 32px;
+    --element-width: 70%;
+    --full-width: 100%;
+    --border-radius: 3px;
+    --main-color: rgb(255, 255, 255);
+    --list-margin: 5px;
+    --number-of-elements-to-show: 5;
+}
 body{
     overflow: hidden;
     background: radial-gradient(circle at center, rgba(218, 255, 251, 0.92) 40%, transparent 100%);

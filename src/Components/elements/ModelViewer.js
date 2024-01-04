@@ -2,10 +2,8 @@ import HotspotButton from "./HotspotButton/HotspotButton";
 import React, {useEffect, useState} from "react";
 import ErrorPopup from "./Popup/ErrorPopup";
 
-function ModelViewer( {tempButton, setTempButton}) {
+function ModelViewer( {tempButton, setTempButton, setErrorMessage, errorMessage}) {
     const [hotspotConfig, setHotspotConfig] = useState({});
-
-    const [errorMessage, setErrorMessage] = useState('');
 
 
     useEffect(() => {
@@ -36,9 +34,9 @@ function ModelViewer( {tempButton, setTempButton}) {
             disable-tap=""
             interaction-prompt="none"
             camera-orbit="30deg 60deg 35m"
-            max-camera-orbit="40deg 85deg 90m"
+            max-camera-orbit="40deg 85deg 35m"
             max-field-of-view="30deg"
-            min-camera-orbit="0deg 0deg 10m"
+            min-camera-orbit="-40deg 0deg 10m"
             min-field-of-view="30deg"
         >
             {Object.entries(hotspotConfig).map(([id, hotspot]) => (
@@ -53,10 +51,7 @@ function ModelViewer( {tempButton, setTempButton}) {
                     setErrorMessage   = {setErrorMessage}
                 />
             ))}
-            {/*{console.log("Rendering tempButton: ", tempButton)}*/}
             {tempButton}
-            {errorMessage &&  <ErrorPopup message={errorMessage} />}
-
         </model-viewer>
     );
 }

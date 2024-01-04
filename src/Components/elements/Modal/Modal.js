@@ -12,12 +12,3 @@ function Modal({ isOpen, onClose, children }) {
 }
 
 export default Modal;
-
-
-// <div className="modal" onClick={(e) => e.stopPropagation()}>
-//     {children}
-// </div>
-
-// <div className="modal-overlay" onClick={onClose}>
-//     {children}
-// </div>

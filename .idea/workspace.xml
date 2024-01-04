@@ -4,17 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="added backup for the esp code">
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/Slider/Slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/Slider/slider_style.css" afterDir="false" />
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="added functionality to create a new button:&#10;TODO: &#10;1. button is not being saved.&#10;2. no error handling.&#10;3. canceling the process should remove the button.">
+      <change afterPath="$PROJECT_DIR$/src/Components/elements/Dropdown/Dropdown.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/elements/Dropdown/Dropdown_style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/elements/TextField/TextField.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/elements/TextField/TextField_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/FloatingActionButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/FloatingActionButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/Buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/Buttons_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/Modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Slider/Slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Slider/Slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Slider/slider_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Slider/slider_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/general_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/general_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,42 +68,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/smart_home/src/assets",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "D:\\webstorm\\WebStorm 2023.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lior/Documents/Arduino/Smart-home-esp-code/esp_root_node_v2 - html files - Copy/esp_root_node_v2/data&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\webstorm\\WebStorm 2023.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\smart_home\src\Components\elements\boxWithCircle" />
       <recent name="D:\smart_home\src\assets" />
       <recent name="D:\smart_home\public" />
       <recent name="D:\smart_home\smart_home_try_2\public" />
       <recent name="D:\smart_home\smart_home_try_2\src\styles" />
-      <recent name="D:\smart_home\smart_home_try_2\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\smart_home\src\Components\elements\HotspotButton" />
+      <recent name="D:\smart_home\src\Components\elements\DropDown" />
       <recent name="D:\smart_home\src\temp" />
       <recent name="D:\smart_home\src" />
       <recent name="D:\smart_home\src\Components\elements\toolbar" />
-      <recent name="D:\smart_home\src\Components\elements\HotspotButton" />
-      <recent name="D:\smart_home\src\Components\elements\cameraFeed" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -190,7 +200,17 @@
       <workItem from="1702626061388" duration="2425000" />
       <workItem from="1702673206017" duration="623000" />
       <workItem from="1702722111858" duration="4911000" />
-      <workItem from="1703008215661" duration="18976000" />
+      <workItem from="1703008215661" duration="19048000" />
+      <workItem from="1703089179534" duration="9532000" />
+      <workItem from="1703153280340" duration="9000" />
+      <workItem from="1703153309518" duration="98000" />
+      <workItem from="1703153450716" duration="596000" />
+      <workItem from="1703178001449" duration="256000" />
+      <workItem from="1703326831102" duration="9767000" />
+      <workItem from="1703445671865" duration="2828000" />
+      <workItem from="1703871847163" duration="28000" />
+      <workItem from="1704315243308" duration="863000" />
+      <workItem from="1704388169609" duration="20113000" />
     </task>
     <task id="LOCAL-00001" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -568,7 +588,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702728458594</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="added functionality to create a new button:&#10;TODO: &#10;1. button is not being saved.&#10;2. no error handling.&#10;3. canceling the process should remove the button.">
+      <option name="closed" value="true" />
+      <created>1703027480367</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1703027480367</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +618,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="branch removed" />
     <MESSAGE value="removed static files" />
     <MESSAGE value="finally fixed lights...&#10;not updating config from server yet" />
     <MESSAGE value="updated README.md" />
@@ -615,6 +642,7 @@
     <MESSAGE value="fixed localhost call" />
     <MESSAGE value="Added an error popup, new button and edit button modals." />
     <MESSAGE value="added backup for the esp code" />
-    <option name="LAST_COMMIT_MESSAGE" value="added backup for the esp code" />
+    <MESSAGE value="added functionality to create a new button:&#10;TODO: &#10;1. button is not being saved.&#10;2. no error handling.&#10;3. canceling the process should remove the button." />
+    <option name="LAST_COMMIT_MESSAGE" value="added functionality to create a new button:&#10;TODO: &#10;1. button is not being saved.&#10;2. no error handling.&#10;3. canceling the process should remove the button." />
   </component>
 </project>

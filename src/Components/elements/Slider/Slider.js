@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import "./slider_style.css";
 
 const Slider = ({ onChange }) => {
-    const multiplier = 60; // Multiplier to convert float to int and vice versa
+    const multiplier = 1500; // Multiplier to make the controls easier by converting the location values to float numbers
     const [value, setValue] = useState(0);
-    const [maxVal, setmaxVal] = useState(50 * multiplier); // Adjusted for float values
-    const [minVal, setminVal] = useState(-50 * multiplier); // Adjusted for float values
+    const [maxVal, setmaxVal] = useState(9 * multiplier);
+    const [minVal, setminVal] = useState(-9 * multiplier);
 
     const handleSliderChange = (e) => {
-        const newValue = e.target.value / multiplier; // Convert back to float
+        const newValue = e.target.value / multiplier; // Convert to float
         setValue(newValue);
-        if (onChange) {
-            onChange(newValue); // Call the passed onChange function with float value
-        }
+        if (onChange)
+            onChange(newValue);
     };
 
     return (
@@ -22,7 +21,7 @@ const Slider = ({ onChange }) => {
                 id="Slider-body"
                 min={minVal}
                 max={maxVal}
-                value={value * multiplier} // Adjusted for float values
+                value={value * multiplier}
                 onChange={handleSliderChange}
             />
         </div>

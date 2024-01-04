@@ -7,16 +7,22 @@
 .modal {
     display: flex;
     text-align: center;
-    /*justify-content: center;*/
-    gap: 15px;
+    justify-content: center;
+    gap: 10px;
     align-items: center;
-    padding: 20px;
+    padding: 0 15px 20px 15px;
     border-radius: 20px;
     box-shadow: 0 20px 40px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1;
     backdrop-filter: blur(7px);
     flex-direction: column;
+    animation: slideInFromBottom 0.5s ease-out forwards;
 }
+
+@keyframes slideInFromBottom {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+}
+
 
 /* Desktop: position in the lower right corner */
 @media (min-width: 600px) {
@@ -36,12 +42,12 @@
         height:auto;
         width: 70%;
         position: fixed;
-        bottom: 6%;
+        bottom: 2%;
     }
 }
 
 .modal > a{
-    margin-top: 25px;
+    margin-top: 30px;
     width: 100%;
 }
 .modal > .buttons-container > button{
@@ -62,39 +68,4 @@
     margin-top: 30px;
     width: 100%;
     justify-content: space-around;
-}
-
-.select-node, .node-name, .select-type{
-    /*text-align: left;*/
-    font-size: 17px;
-    width: 67%;
-    height: 30px;
-    outline: none;
-    border: none;
-    background-color: transparent;
-    border-bottom: 2px solid black;
-    transition: border-bottom 0.3s ease-in-out, transform 0.7s ease-in-out;
-    padding-left: 5px;
-    cursor: pointer;
-    text-align: left;
-    user-select: none;
-}
-
-.node-name::placeholder{
-    /*color: rgba(104, 238, 232, 0.71);*/
-    color: rgb(0, 0, 0);
-
-}
-
-
-.select-node:focus{
-    outline: none;
-    font-size: 17px;
-    transition: all 0.5s ease-in-out;
-    border-bottom: 2px solid #00fff7;
-}
-
-.select-node > option{
-    background-color: rgba(145, 100, 100, 0.15);
-
 }
