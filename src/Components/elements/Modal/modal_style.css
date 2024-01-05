@@ -31,8 +31,12 @@
         align-items: flex-end;
     }
     .modal {
-        height: 50%;
-        width: 25%;
+        height: 30%;
+        width: 60%;
+        position: fixed;
+        bottom: 2%;
+        right: 20%;
+        left: 20%;
     }
 }
 

@@ -10,7 +10,7 @@ function ErrorPopup({ message }) {
         if (message) {
             setShowPopup(true);
             setTimeout(() => {
-                console.log(showPopup);
+                // console.log(showPopup);
                 setShowPopup(false);
             }, 3000);
         }

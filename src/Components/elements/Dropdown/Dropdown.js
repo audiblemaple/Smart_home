@@ -1,32 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import "./Dropdown_style.css"
-const Dropdown = ({ initialText, list, setSelectedElement}) => {
+const Dropdown = ({initialText, list, setSelectedElement}) => {
 
-    const [selectedValue, setSelectedValue] = useState("choose an option");
-
+    const [selectedValue, setSelectedValue] = useState(initialText);
     const [listState, setListState] = useState("hidden");
-    const [changeFlag, setChangeFlag] = useState(true);
 
     useEffect(() => {
-        // Function to be called on click
         const closeList = () => {
             setListState("hidden");
         };
 
-        // Attach the event listener
         document.addEventListener('click', closeList);
 
-        // Clean up the event listener
         return () => {
             document.removeEventListener('click', closeList);
         };
     }, []);
-
-    useEffect(() => {
-        setChangeFlag(false);
-    }, [selectedValue]);
-
 
     const toggleList = () => {
         if (listState === "show"){
@@ -39,7 +29,7 @@ const Dropdown = ({ initialText, list, setSelectedElement}) => {
     const selectElement = (event) => {
         setSelectedValue(event.target.innerText);
         setSelectedElement(event.target.innerText);
-        // closeList handles the list closing when an element is clicked
+        // closeList will handle the list closing when an element is chosen
     };
 
     const createList = () => {
@@ -51,11 +41,14 @@ const Dropdown = ({ initialText, list, setSelectedElement}) => {
     return (
         <div className="dropdown-container" onClick={toggleList}>
             <div className="main-box">
-                {changeFlag ? initialText : selectedValue }
+                { selectedValue }
             </div>
-            <div className={`list-box ${listState}`} onClick={toggleList} >
-                {createList()}
-            </div>
+
+            {list.length > 0 && (
+                <div className={`list-box ${listState}`} onClick={toggleList}>
+                    {createList()}
+                </div>
+            )}
         </div>
     );
 };

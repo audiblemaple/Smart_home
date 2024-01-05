@@ -22,8 +22,7 @@ const HouseView = () => {
             <Banner text="Smart home" />
             <Toolbar openModal={openModal} closeModal={closeModal} setChildren={setChildren} setTempButton={setTempButton} setErrorMessage={setErrorMessage}/>
             {isModalOpen && (
-                <Modal isOpen={isModalOpen} onClose={closeModal}>
-                    {children}
+                <Modal isOpen={isModalOpen} onClose={closeModal} children={children}>
                 </Modal>
             )}
             {errorMessage &&  <ErrorPopup message={errorMessage} />}

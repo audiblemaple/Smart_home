@@ -19,9 +19,7 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMes
     const [position, setPosition] = useState({ x: 0, y: 0, z: 1 });
 
     const [isFirst, setIsFirst] = useState(true);
-    const [nodeID, setNodeID] = useState("Chose a node ID");
-    const [nodeName, setNodeName] = useState("");
-    const [type, setType] = useState("Choose button type");
+
     const buttonTypeList = [
         "light",
         "blind",
@@ -30,6 +28,11 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMes
     ];
 
     const [modalError, setmodalError] = useState("");
+
+    useEffect(() => {
+        fetchNodeIds()
+            .then(r => {});
+    }, []);
 
     useEffect(() => {
         if (isFirst){
@@ -51,25 +54,35 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMes
     }, [position]);
 
 
-
-    const [nodeIdList, setnodeIdList] = useState(null);
+    const [nodeIdList, setNodeIdList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+
+    const [nodeID, setNodeID] = useState("Choose a node ID");
+    const [nodeName, setNodeName] = useState("");
+    const [type, setType] = useState("Choose button type");
+
+
     const fetchNodeIds = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch('http://192.168.1.115/getNodes');
-            if (!response.ok) {
+            const response = await fetch('http://192.168.1.159:3001/api/getNodeIds');
+            // console.log(response);
+            if (!response.ok)
                 throw new Error('Network response was not ok');
-            }
+
             const json = await response.json();
-            if (json.subs)
-                setnodeIdList(json.subs);
-            else
-                setErrorMessage("No nodes found. please connect a node");
+            if ( !json.success){
+                setErrorMessage("Error fetching node IDs");
                 setTimeout(() => {
                     setErrorMessage("");
                 }, 3000);
+                return;
+            }
+
+            const nodeIdListFromJson = json.list.subs.map(sub => sub.nodeId);
+
+            setNodeIdList(nodeIdListFromJson);
+
         } catch (error) {
             setErrorMessage(error.message);
             setTimeout(() => {
@@ -122,23 +135,23 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMes
         setIsSubmited(true);
 
         console.log(nodeID);
-        if (nodeID === "Chose a node ID"){
-            console.log("bad id");
-            showError("bad ID");
+        if (nodeID === "Choose a node ID"){
+            console.log("Node ID must be chosen!");
+            showError("Must choose node ID!");
             return;
         }
 
         console.log(nodeName);
         if (nodeName === ""){
-            console.log("bad type");
-            showError("Empty node name not allowed");
+            console.log("Name must not be empty!");
+            showError("Name must not be empty!");
             return;
         }
 
         console.log(type);
         if (type === "Choose button type"){
-            console.log("bad type");
-            showError("bad type");
+            console.log("Must choose button Type!");
+            showError("Must choose button Type!");
             return;
         }
         closeModal();
@@ -173,43 +186,52 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMes
         closeModal();
     }
 
-    const handleNameChange = (event) => {
-        setNodeName(event.target.innerText);
-        console.log(nodeName);
+    // useEffect(() => {
+    //     console.log({ nodeID, nodeName, type });
+    // }, [nodeID, nodeName, type, nodeIdList]);
+    //
+    // useEffect(() => {
+    //     console.log(nodeName);
+    // }, [nodeName]);
+
+    function isMobileDevice() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
     }
 
+    const handleNewButton =  () => {
+        if (nodeIdList.length === 0){
+            setErrorMessage("No nodes are found, please connect more nodes");
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 3000);
+            return;
+        }
 
-    useEffect(() => {
-        console.log({ nodeID, nodeName, type });
-    }, [nodeID, nodeName, type]);
+        const modelViewer = document.getElementById('model');
 
-    const handleNewButton = () => {
+        if (isMobileDevice()) {
+            modelViewer.setAttribute('camera-target', "0 0 8m");
+        } else {
+            modelViewer.setAttribute('camera-target', "0 0 4m");
+        }
+        modelViewer.setAttribute('camera-orbit', '0deg 10deg 35m');
 
-        // TODO: fetch node ids and if no node ids then print an error.
-        fetchNodeIds().then(r => {
-            const modelViewer = document.getElementById('model');
-            modelViewer.setAttribute('camera-target', "0 0 10m");
-            modelViewer.setAttribute('camera-orbit', '0deg 10deg 35m');
+        setChildren(
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <h2>Add new button</h2>
+                <Dropdown  initialText={nodeID} list={nodeIdList} setSelectedElement={setNodeID}/>
+                <TextField setText={setNodeName}></TextField>
+                <Dropdown  initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
 
-            setChildren(
-                <div className="modal" onClick={(e) => e.stopPropagation()}>
-                    <h2>Add new button</h2>
-
-                    <Dropdown initialText={nodeID} list={buttonTypeList} setSelectedElement={setNodeID}/>
-
-                    <TextField setText={setNodeName}></TextField>
-
-                    <Dropdown initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
-
-                    <div className="buttons-container">
-                        <button onClick={handleCloseModal}>       Cancel </button>
-                        <button onClick={handleSubmitNewButton} > Submit </button>
-                    </div>
-                    <a>{modalError}</a>
+                <div className="buttons-container">
+                    <button onClick={handleCloseModal}>       Cancel </button>
+                    <button onClick={handleSubmitNewButton} > Submit </button>
                 </div>
-            );
-            openModal();
-        });
+                <a>{modalError}</a>
+            </div>
+        );
+        openModal();
     }
 
     const handleEditButton = () => {
