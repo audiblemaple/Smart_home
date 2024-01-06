@@ -4,16 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Added new components for text field and text box">
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="optimized form components.&#10;&#10;Still same problem where the component is not being updated....">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Dropdown/Dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Dropdown/Dropdown.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Dropdown/Dropdown_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Dropdown/Dropdown_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/FloatingActionButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/FloatingActionButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/TextField/TextField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/TextField/TextField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/TextField/TextField_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/TextField/TextField_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/general_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/general_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/temp/light_node" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/temp/root_node_backup" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +54,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -74,7 +85,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\webstorm\\WebStorm 2023.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -201,15 +212,10 @@
       <workItem from="1704315243308" duration="863000" />
       <workItem from="1704388169609" duration="20379000" />
       <workItem from="1704437696830" duration="8300000" />
-      <workItem from="1704466726180" duration="8618000" />
-    </task>
-    <task id="LOCAL-00001" summary="Backup &amp; initial commit">
-      <option name="closed" value="true" />
-      <created>1698697659919</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1698697659919</updated>
+      <workItem from="1704466726180" duration="8664000" />
+      <workItem from="1704482188979" duration="2000" />
+      <workItem from="1704534760703" duration="1096000" />
+      <workItem from="1704535923071" duration="4337000" />
     </task>
     <task id="LOCAL-00002" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -595,11 +601,22 @@
       <option name="project" value="LOCAL" />
       <updated>1704409107118</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="optimized form components.&#10;&#10;Still same problem where the component is not being updated....">
+      <option name="closed" value="true" />
+      <created>1704475846750</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1704475846750</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -617,7 +634,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="finally fixed lights...&#10;not updating config from server yet" />
     <MESSAGE value="updated README.md" />
     <MESSAGE value="working button states save to and from server" />
     <MESSAGE value="working button states save to and from server, before transferring this functionality to the server side" />
@@ -642,6 +658,7 @@
     <MESSAGE value="added backup for the esp code" />
     <MESSAGE value="added functionality to create a new button:&#10;TODO: &#10;1. button is not being saved.&#10;2. no error handling.&#10;3. canceling the process should remove the button." />
     <MESSAGE value="Added new components for text field and text box" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new components for text field and text box" />
+    <MESSAGE value="optimized form components.&#10;&#10;Still same problem where the component is not being updated...." />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized form components.&#10;&#10;Still same problem where the component is not being updated...." />
   </component>
 </project>

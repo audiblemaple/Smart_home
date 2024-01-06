@@ -7,7 +7,7 @@ import "../Modal/modal_style.css"
 import Dropdown from "../Dropdown/Dropdown";
 import TextField from "../TextField/TextField";
 
-function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMessage}) {
+function Toolbar({openModal, closeModal, setChildren, setTempButton, showError}) {
     const navigate = useNavigate();
     const [isClosed, setIsClosed] = useState(true);
     const toolbarRef = useRef(null); // Ref for the toolbar
@@ -65,17 +65,14 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMes
     const fetchNodeIds = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch('http://192.168.1.159:3001/api/getNodeIds');
+            const response = await fetch(`${process.env.REACT_APP_SERVER_API_URL}/getNodeIds`);
             // console.log(response);
             if (!response.ok)
                 throw new Error('Network response was not ok');
 
             const json = await response.json();
             if ( !json.success){
-                setErrorMessage("Error fetching node IDs");
-                setTimeout(() => {
-                    setErrorMessage("");
-                }, 3000);
+                showError("Error fetching node IDs");
                 return;
             }
 
@@ -84,10 +81,8 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMes
             setNodeIdList(nodeIdListFromJson);
 
         } catch (error) {
-            setErrorMessage(error.message);
-            setTimeout(() => {
-                setErrorMessage("");
-            }, 3000);
+            showError(error.message);
+
         } finally {
             setIsLoading(false);
         }
@@ -124,12 +119,7 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMes
         });
     };
 
-    const showError = (error) => {
-        setErrorMessage(error);
-        setTimeout(() => {
-            setErrorMessage("");
-        }, 3000);
-    }
+
 
     const handleSubmitNewButton = () => {
         setIsSubmited(true);
@@ -201,10 +191,8 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, setErrorMes
 
     const handleNewButton =  () => {
         if (nodeIdList.length === 0){
-            setErrorMessage("No nodes are found, please connect more nodes");
-            setTimeout(() => {
-                setErrorMessage("");
-            }, 3000);
+
+            showError("No nodes are found, please connect more nodes");
             return;
         }
 

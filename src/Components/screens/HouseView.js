@@ -14,13 +14,21 @@ const HouseView = () => {
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
+    const showError = (error) => {
+        console.log(error)
+        setErrorMessage(error);
+        setTimeout(() => {
+            setErrorMessage("");
+        }, 3500);
+    }
+
     return (
         <div className="container">
             <div className="box">
                 <ModelViewer tempButton={tempButton} setTempButton={setTempButton} setErrorMessage={setErrorMessage} errorMessage={errorMessage}/>
             </div>
             <Banner text="Smart home" />
-            <Toolbar openModal={openModal} closeModal={closeModal} setChildren={setChildren} setTempButton={setTempButton} setErrorMessage={setErrorMessage}/>
+            <Toolbar openModal={openModal} closeModal={closeModal} setChildren={setChildren} setTempButton={setTempButton} showError={showError}/>
             {isModalOpen && (
                 <Modal isOpen={isModalOpen} onClose={closeModal} children={children}>
                 </Modal>

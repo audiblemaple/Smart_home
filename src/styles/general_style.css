@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 *{
     /* Disable context menu on mobile when the button is being held down */
     -webkit-touch-callout: none;
     user-select: none;
     font-size: 17px;
+    font-family: 'Roboto', sans-serif;
 }
 :root {
     --container-height: 200px;

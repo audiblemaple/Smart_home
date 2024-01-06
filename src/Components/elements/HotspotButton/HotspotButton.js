@@ -38,63 +38,63 @@ const HotspotButton = ({
 
     const SECOND = 1000;
 
-    useEffect(() => {
-        if (isSetup){
-            setIsSetUp(false);
-            return;
-        }
-        updateConfig(slot, isOn)
-            .then(r => console.log(`updated config for node: ${nodeID}`))
-            .catch(error => {
-                console.error(`Error updating config for node: ${nodeID}`, error);
-            });
-        sendCommand(isOn ? "turn_on" : "turn_off");
-    }, [isOn]);
-
+    // useEffect(() => {
+    //     if (isSetup){
+    //         setIsSetUp(false);
+    //         return;
+    //     }
+    //     sendCommand(isOn ? "turn_on" : "turn_off");
+    //
+    //     updateConfig(slot, isOn)
+    //         .then(r => console.log(`updated config for node: ${nodeID}`))
+    //         .catch(error => {
+    //             console.error(`Error updating config for node: ${nodeID}`, error);
+    //         });
+    // }, [isOn]);
+    //
     const toggleActive = () => {
         setIsOn(!isOn);
     };
 
-    function sendCommand(action) {
-        if(nodeID === "????"){
+    async function sendCommand(action) {
+        if (nodeID === "????") {
             console.log("Node ID still unknown... add it to the config!");
-            return;
+            return false;
         }
         console.log(`sending: ${action} to: ${nodeID}`);
 
-        const url = 'http://192.168.1.159:3001/api/command';
         const data = {
             nodeID: nodeID,
             action: action,
         };
 
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then(data => {
-                if (!data.ok){
-                    setErrorMessage("Error sending command");
-                    setTimeout(() => {
-                        setErrorMessage("");
-                    }, 3000);
-                }
-            })
-            .catch((error) => {
-                console.error(`Error sending command to node: ${nodeID}`, error);
-                setErrorMessage("An error occurred");
-                setTimeout(() => {
-                    setErrorMessage("");
-                }, 3000);
+        try {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_API_URL}/command`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
             });
+
+            if (!response.ok) {
+                throw new Error("HTTP error");
+            }
+
+            return true;
+        } catch (error) {
+            console.error(`Error sending command to node: ${nodeID}`, error);
+            setErrorMessage("An error occurred");
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 3000);
+            return false;
+        }
     }
 
     const updateConfig = async (slot, isOnValue) => {
         try {
-            const response = await fetch('http://192.168.1.159:3001/api/config', {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_API_URL}/config`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,13 +115,22 @@ const HotspotButton = ({
         }
     };
 
-    const handleLightButtonClick = () => {
+    const handleLightButtonClick = async () => {
         if (isClickable && ['light', 'light_off'].includes(blindOrLightOrCam)) {
             setIsClickable(false);
             setTimeout(() => setIsClickable(true), 0.4 * SECOND);
 
-            // Call toggleActive after setting timeout
-            toggleActive();
+            // Attempt to send the command and update the configuration
+            const commandSentSuccessfully = await sendCommand(isOn ? "turn_on" : "turn_off");
+            if (commandSentSuccessfully) {
+                try {
+                    await updateConfig(slot, !isOn);
+                    // Toggle the light state only if the command and config update are successful
+                    setIsOn(!isOn);
+                } catch (error) {
+                    console.error("Failed to update config: ", error);
+                }
+            }
         }
     };
 

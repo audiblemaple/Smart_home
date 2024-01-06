@@ -7,7 +7,7 @@ function ModelViewer( {tempButton, setTempButton, setErrorMessage, errorMessage}
 
 
     useEffect(() => {
-        fetch('http://192.168.1.159:3001/api/config')
+        fetch(`${process.env.REACT_APP_SERVER_API_URL}/config`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);

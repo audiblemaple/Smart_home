@@ -12,7 +12,6 @@ const FloatingActionButton = ({ actionType, className, sendCommand}) => {
     };
 
     const handleMouseUp = () => {
-        console.log("mouse up")
         setIsClickable(false);
         if ( !isClickable )
             return
@@ -21,7 +20,6 @@ const FloatingActionButton = ({ actionType, className, sendCommand}) => {
             sendCommand("blind_stop");
             setTimeout(() => {
                 setIsClickable(true);
-                console.log("reset")
             }, 300);
         }
     };
