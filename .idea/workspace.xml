@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="optimized form components.&#10;&#10;Still same problem where the component is not being updated....">
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/FloatingActionButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/FloatingActionButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/general_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/general_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/temp/light_node" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/temp/root_node_backup" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +29,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Lior Jigalo &lt;audiblemaple@gmail.com&gt;" />
+        <option value="Lior &lt;audiblemaple@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="b7a91e0c7ec916a5d02a69ffd535cc9db9f709a8" />
@@ -47,6 +42,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/temp/temp.js" root0="SKIP_HIGHLIGHTING" />
@@ -215,15 +211,8 @@
       <workItem from="1704466726180" duration="8664000" />
       <workItem from="1704482188979" duration="2000" />
       <workItem from="1704534760703" duration="1096000" />
-      <workItem from="1704535923071" duration="4337000" />
-    </task>
-    <task id="LOCAL-00002" summary="Backup &amp; initial commit">
-      <option name="closed" value="true" />
-      <created>1698698200456</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1698698200456</updated>
+      <workItem from="1704535923071" duration="5608000" />
+      <workItem from="1704541661551" duration="608000" />
     </task>
     <task id="LOCAL-00003" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -609,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704475846750</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="optimized error message display and made it so the light button is not being switched on unless the config AND the command is sent successfully.">
+      <option name="closed" value="true" />
+      <created>1704540789804</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1704540789805</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +631,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated README.md" />
     <MESSAGE value="working button states save to and from server" />
     <MESSAGE value="working button states save to and from server, before transferring this functionality to the server side" />
     <MESSAGE value="finally, button state gets fetched from server, and updated when state changes" />
@@ -659,6 +655,7 @@
     <MESSAGE value="added functionality to create a new button:&#10;TODO: &#10;1. button is not being saved.&#10;2. no error handling.&#10;3. canceling the process should remove the button." />
     <MESSAGE value="Added new components for text field and text box" />
     <MESSAGE value="optimized form components.&#10;&#10;Still same problem where the component is not being updated...." />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized form components.&#10;&#10;Still same problem where the component is not being updated...." />
+    <MESSAGE value="optimized error message display and made it so the light button is not being switched on unless the config AND the command is sent successfully." />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized error message display and made it so the light button is not being switched on unless the config AND the command is sent successfully." />
   </component>
 </project>
