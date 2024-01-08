@@ -69,7 +69,7 @@
 
 .modal > .buttons-container{
     display: flex;
-    margin-top: 30px;
+    margin-top: 10px;
     width: 100%;
     justify-content: space-around;
 }

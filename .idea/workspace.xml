@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="optimizations...">
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Fixed the problem where the modal was not f***ing updating!!!">
+      <change afterPath="$PROJECT_DIR$/src/Components/elements/DraggableRectangle/DraggableRectangle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/elements/DraggableRectangle/DraggableRectangle_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/ExternalPage/External_page_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ExternalPage/External_page_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/general_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/general_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,11 +100,11 @@
       <recent name="D:\smart_home\smart_home_try_2\src\styles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\smart_home\src\Components\elements\DraggableRectangle" />
       <recent name="D:\smart_home\src\Components\elements\HotspotButton" />
       <recent name="D:\smart_home\src\Components\elements\DropDown" />
       <recent name="D:\smart_home\src\temp" />
       <recent name="D:\smart_home\src" />
-      <recent name="D:\smart_home\src\Components\elements\toolbar" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -214,15 +219,7 @@
       <workItem from="1704535923071" duration="5608000" />
       <workItem from="1704541661551" duration="608000" />
       <workItem from="1704646281542" duration="934000" />
-      <workItem from="1704739658736" duration="737000" />
-    </task>
-    <task id="LOCAL-00004" summary="Backup &amp; initial commit">
-      <option name="closed" value="true" />
-      <created>1698699581620</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1698699581620</updated>
+      <workItem from="1704739658736" duration="11642000" />
     </task>
     <task id="LOCAL-00005" summary="Backup &amp; initial commit">
       <option name="closed" value="true" />
@@ -608,7 +605,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704646296884</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Fixed the problem where the modal was not f***ing updating!!!">
+      <option name="closed" value="true" />
+      <created>1704740522075</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1704740522077</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +638,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="working button states save to and from server, before transferring this functionality to the server side" />
     <MESSAGE value="finally, button state gets fetched from server, and updated when state changes" />
     <MESSAGE value="added blinds control functionality" />
     <MESSAGE value="Fixed swapped AC states&#10;Visual improvements" />
@@ -658,6 +662,7 @@
     <MESSAGE value="optimized form components.&#10;&#10;Still same problem where the component is not being updated...." />
     <MESSAGE value="optimized error message display and made it so the light button is not being switched on unless the config AND the command is sent successfully." />
     <MESSAGE value="optimizations..." />
-    <option name="LAST_COMMIT_MESSAGE" value="optimizations..." />
+    <MESSAGE value="Fixed the problem where the modal was not f***ing updating!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the problem where the modal was not f***ing updating!!!" />
   </component>
 </project>

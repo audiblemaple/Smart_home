@@ -3,7 +3,7 @@
     top: -100px;
     left: 0;
     right: 0;
-    background-color: rgba(255, 0, 0, 0.13);
+    background-color: rgba(255, 0, 0, 0.72);
     color: white;
     font-size: 20px;
     text-align: center;
@@ -11,7 +11,7 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     transition: top 0.5s ease-in-out;
     border-radius: 0 0 5px 5px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 }
 
 .popup.show {
@@ -20,5 +20,5 @@
 }
 .popup.hide {
     transition: top 0.5s ease-in-out;
-    top: -100px;
+    top: -101px;
 }

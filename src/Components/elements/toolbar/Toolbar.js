@@ -6,6 +6,7 @@ import HotspotButton from "../HotspotButton/HotspotButton";
 import "../Modal/modal_style.css"
 import Dropdown from "../Dropdown/Dropdown";
 import TextField from "../TextField/TextField";
+import DraggableRectangle from "../DraggableRectangle/DraggableRectangle";
 
 function Toolbar({openModal, closeModal, setChildren, setTempButton, showError}) {
     const navigate = useNavigate();
@@ -19,6 +20,9 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
     const [position, setPosition] = useState({ x: 0, y: 0, z: 1 });
 
     const [isFirst, setIsFirst] = useState(true);
+
+    const [Point, setPoint] = useState({ x: 0, y: 0 });
+
 
     const buttonTypeList = [
         "light",
@@ -37,11 +41,13 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
             setIsFirst(false);
             return
         }
+
         const newButton = (
             <HotspotButton
                 key={`hotspot-${Date.now()}`} // each time a different key for the new button to re-render
                 slot="hotspot-19"
-                position={`${position.x}m ${position.z}m ${position.y}m`}
+                // position={`${position.x}m ${position.z}m ${position.y}m`}
+                position={`${Point.x / 5}m ${type === "light" ? 1.1 : 0.2 }m ${Point.y / 5}m`}
                 normal="0m 1m 0m"
                 blindOrLightOrCam={type}
                 initialIsOn={false}
@@ -49,7 +55,7 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
             />
         );
         setTempButton(newButton);
-    }, [position]);
+    }, [position, Point]);
 
 
     const [nodeIdList, setNodeIdList] = useState([]);
@@ -161,23 +167,17 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
         setTimeout(() => {
             setChildren(
                 <div className="modal" onClick={(e) => e.stopPropagation()}>
-                    <h2>{isSubmitted ? "choose location" : "Edit Button"}</h2>
-                    X-position ↔
-                    <Slider onChange={(value) => handlePositionChange('x', value)} />
-                    Y-position ↕
-                    <Slider onChange={(value) => handlePositionChange('y', value)} />
-                    Z-position ↗
-                    <Slider onChange={(value) => handlePositionChange('z', value)} />
+                    <DraggableRectangle Point={Point} setPoint={setPoint}></DraggableRectangle>
                     <div className="buttons-container">
-                        <button onClick={handleCloseModal}> Cancel </button>
-                        <button onClick={handleSavebutton}> Save </button>
+                        <button onClick={handleCloseModal}> Cancel</button>
+                        <button onClick={handleSubmitNewButton}> Submit</button>
                     </div>
                 </div>
             );
             openModal();
         }, 100);
 
-        setPosition({ x: 0, y: 0, z: 1 });
+        setPosition({x: 0, y: 0, z: 1});
     }
 
     const handleSavebutton = () => {
@@ -185,17 +185,8 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
         modelViewer.setAttribute('camera-target', "0 0 0");
         modelViewer.setAttribute('camera-orbit', '15deg 50deg 35m');
         setIsSubmited(false);
-        modelViewer.enableInteraction();
         closeModal();
     }
-
-    // useEffect(() => {
-    //     console.log({ nodeID, nodeName, type });
-    // }, [nodeID, nodeName, type, nodeIdList]);
-    //
-    // useEffect(() => {
-    //     console.log(nodeName);
-    // }, [nodeName]);
 
     function isMobileDevice() {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -204,19 +195,20 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
 
     const handleNewButton =  () => {
         if (nodeIdList.length === 0){
-
             showError("No nodes are found, please connect more nodes");
             return;
         }
 
         const modelViewer = document.getElementById('model');
-
         if (isMobileDevice()) {
-            modelViewer.setAttribute('camera-target', "0 0 8m");
+            console.log("mobile");
+            modelViewer.setAttribute('camera-target', "0 0 6m");
+
         } else {
+            console.log("desktop");
             modelViewer.setAttribute('camera-target', "0 0 4m");
         }
-        modelViewer.setAttribute('camera-orbit', '0deg 10deg 35m');
+        modelViewer.setAttribute('camera-orbit', '0deg 10deg 28m');
 
         setChildren(
             <div className="modal" onClick={(e) => e.stopPropagation()}>
