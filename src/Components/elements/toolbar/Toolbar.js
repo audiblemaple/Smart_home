@@ -27,8 +27,6 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
         "ac"
     ];
 
-    const [modalError, setmodalError] = useState("");
-
     useEffect(() => {
         fetchNodeIds()
             .then(r => {});
@@ -61,6 +59,21 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
     const [nodeName, setNodeName] = useState("");
     const [type, setType] = useState("Choose button type");
 
+    useEffect(() => {
+        setChildren(
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <h2>Add new button</h2>
+                <Dropdown  initialText={nodeID} list={nodeIdList} setSelectedElement={setNodeID}/>
+                <TextField setText={setNodeName}></TextField>
+                <Dropdown  initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
+
+                <div className="buttons-container">
+                    <button onClick={handleCloseModal}>       Cancel </button>
+                    <button onClick={handleSubmitNewButton} > Submit </button>
+                </div>
+            </div>
+        );
+    }, [nodeID, nodeName, type]);
 
     const fetchNodeIds = async () => {
         setIsLoading(true);
@@ -216,7 +229,6 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
                     <button onClick={handleCloseModal}>       Cancel </button>
                     <button onClick={handleSubmitNewButton} > Submit </button>
                 </div>
-                <a>{modalError}</a>
             </div>
         );
         openModal();

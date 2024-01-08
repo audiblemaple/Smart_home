@@ -10,7 +10,7 @@ function ErrorPopup({ message }) {
             setTimeout(() => {
                 console.log(showPopup);
                 setShowPopup(false);
-            }, (Number(process.env.REACT_APP_ERROR_DISPLAY_DURATION) || 2) * 1000);
+            }, (Number(process.env.REACT_APP_ERROR_DISPLAY_DURATION) || 3) * 1000);
         }
     }, [message]);
 

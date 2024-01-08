@@ -32,16 +32,16 @@
     }
     .modal {
         height: 30%;
-        width: 60%;
+        width: 40%;
         position: fixed;
         bottom: 2%;
-        right: 20%;
-        left: 20%;
+        left: 30%;
+        /*margin: auto;*/
     }
 }
 
 /*Mobile: position in the center*/
-@media (min-width: 1px) and (max-width: 1000px){
+@media (min-width: 1px) and (max-width: 600px){
     .modal {
         height:auto;
         width: 70%;
