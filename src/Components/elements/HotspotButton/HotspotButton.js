@@ -121,7 +121,7 @@ const HotspotButton = ({
             setTimeout(() => setIsClickable(true), 0.4 * SECOND);
 
             // Attempt to send the command and update the configuration
-            const commandSentSuccessfully = await sendCommand(isOn ? "turn_on" : "turn_off");
+            const commandSentSuccessfully = await sendCommand(isOn ? "turn_off" : "turn_on");
             if (commandSentSuccessfully) {
                 try {
                     await updateConfig(slot, !isOn);

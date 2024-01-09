@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Fixed the problem where the modal was not f***ing updating!!!">
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/DraggableRectangle/DraggableRectangle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/elements/DraggableRectangle/DraggableRectangle_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Added a new drag area for the new button position.&#10;&#10;Fixed the environment variable multiplication from 100 to 1000 for the error message display.&#10;&#10;Fixed bug where node name input breaks the apps borders.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/ExternalPage/External_page_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ExternalPage/External_page_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/popup_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/banner/banner_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/general_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/general_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,15 +210,8 @@
       <workItem from="1704535923071" duration="5608000" />
       <workItem from="1704541661551" duration="608000" />
       <workItem from="1704646281542" duration="934000" />
-      <workItem from="1704739658736" duration="11642000" />
-    </task>
-    <task id="LOCAL-00005" summary="Backup &amp; initial commit">
-      <option name="closed" value="true" />
-      <created>1698699610039</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1698699610039</updated>
+      <workItem from="1704739658736" duration="12151000" />
+      <workItem from="1704822819198" duration="81000" />
     </task>
     <task id="LOCAL-00006" summary="backup before video feed">
       <option name="closed" value="true" />
@@ -613,7 +597,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704740522077</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Added a new drag area for the new button position.&#10;&#10;Fixed the environment variable multiplication from 100 to 1000 for the error message display.&#10;&#10;Fixed bug where node name input breaks the apps borders.">
+      <option name="closed" value="true" />
+      <created>1704752868788</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1704752868788</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +630,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="finally, button state gets fetched from server, and updated when state changes" />
     <MESSAGE value="added blinds control functionality" />
     <MESSAGE value="Fixed swapped AC states&#10;Visual improvements" />
     <MESSAGE value="minor css improvements" />
@@ -663,6 +654,7 @@
     <MESSAGE value="optimized error message display and made it so the light button is not being switched on unless the config AND the command is sent successfully." />
     <MESSAGE value="optimizations..." />
     <MESSAGE value="Fixed the problem where the modal was not f***ing updating!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the problem where the modal was not f***ing updating!!!" />
+    <MESSAGE value="Added a new drag area for the new button position.&#10;&#10;Fixed the environment variable multiplication from 100 to 1000 for the error message display.&#10;&#10;Fixed bug where node name input breaks the apps borders." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a new drag area for the new button position.&#10;&#10;Fixed the environment variable multiplication from 100 to 1000 for the error message display.&#10;&#10;Fixed bug where node name input breaks the apps borders." />
   </component>
 </project>
