@@ -11,6 +11,9 @@ const HouseView = () => {
     const [tempButton, setTempButton] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
 
+
+
+
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 

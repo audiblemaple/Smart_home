@@ -1,6 +1,6 @@
 .toolbar_closed, .toolbar_open{
     display: flex;
-    gap: 20px;
+    gap: 5px;
     position: absolute;
     bottom: 6%;
     height: 60px;
@@ -10,9 +10,10 @@
 }
 
 .toolbar_closed{
-    left: -320px;
+    /*left: -290px;*/
+    left: 0;
     /*width: 180px;*/
-    padding-right: 40px;
+    /*padding-right: 40px;*/
     width: auto;
     background: rgba(178, 178, 178, 0.18)
                 url('data:image/svg+xml,<svg fill="%23000000" height="60px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="XMLID_222_" d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001 c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213 C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606 C255,161.018,253.42,157.202,250.606,154.389z"></path></g></svg>')
@@ -22,6 +23,7 @@
 }
 .toolbar_closed > .toolbar-button{
     opacity: 0;
+    width: 0;
 }
 
 .toolbar_open{
@@ -43,7 +45,9 @@
 }
 
 .toolbar-button:hover {
-    transform: scale(1.1);
+    /*transform: scale(1.1);*/
+    animation: jump 0.4s 1;
+
 }
 
 #toolbar_checkbox{
@@ -67,5 +71,20 @@
 #editButton{
     scale: 0.85;
     background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.95,13H9V8.05l5.61-5.61C13.78,2.16,12.9,2,12,2c-4.2,0-8,3.22-8,8.2c0,3.32,2.67,7.25,8,11.8c5.33-4.55,8-8.48,8-11.8 c0-1.01-0.16-1.94-0.45-2.8L13.95,13z"/><polygon points="11,11 13.12,11 19.28,4.84 17.16,2.72 11,8.88"/><path d="M20.71,2L20,1.29C19.8,1.1,19.55,1,19.29,1c-0.13,0-0.48,0.07-0.71,0.29l-0.72,0.72l2.12,2.12l0.72-0.72 C21.1,3.02,21.1,2.39,20.71,2z"/></svg>') no-repeat center;
+}
 
+.jumpy{
+    animation: jump 0.3s 1;
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    80% {
+        transform: translateY(5px);
+    }
+    50% {
+        transform: translateY(-15px) scaleY(90%);
+    }
 }

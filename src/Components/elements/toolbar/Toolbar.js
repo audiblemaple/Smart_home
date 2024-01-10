@@ -20,9 +20,10 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
     const [position, setPosition] = useState({ x: 0, y: 0, z: 1 });
 
     const [isFirst, setIsFirst] = useState(true);
+    const [newButtonJump, setNewButtonJump] = useState(false);
+    const [editButtonJump, setEditButtonJump] = useState(false);
 
     const [Point, setPoint] = useState({ x: 0, y: 0 });
-
 
     const buttonTypeList = [
         "light",
@@ -46,7 +47,6 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
             <HotspotButton
                 key={`hotspot-${Date.now()}`} // each time a different key for the new button to re-render
                 slot="hotspot-19"
-                // position={`${position.x}m ${position.z}m ${position.y}m`}
                 position={`${Point.x / 5}m ${type === "light" ? 1.1 : 0.2 }m ${Point.y / 5}m`}
                 normal="0m 1m 0m"
                 blindOrLightOrCam={type}
@@ -113,12 +113,18 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
         modelViewer.setAttribute('camera-orbit', '0deg 0deg 30m');
     };
 
-    const meshControlPanel = () => {
+    const meshControlPanel = async () => {
         navigate('/mesh');
     }
 
     const toggleToolbar = (button) => {
-        setIsClosed(!isClosed);
+        if (isClosed){
+            setIsClosed(!isClosed);
+            return;
+        }
+        setTimeout( () => {
+            setIsClosed(!isClosed);
+        }, 400);
     };
 
     const handleCloseModal = () => {
@@ -128,17 +134,6 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
         setTempButton(null);
         closeModal();
     }
-
-    const handlePositionChange = (axis, value) => {
-        setPosition(prev => {
-            const updatedPosition = { ...prev, [axis]: parseFloat(value) };
-            positionRef.current = updatedPosition;
-
-            return updatedPosition;
-        });
-    };
-
-
 
     const handleSubmitNewButton = () => {
         setIsSubmited(true);
@@ -176,7 +171,6 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
             );
             openModal();
         }, 100);
-
         setPosition({x: 0, y: 0, z: 1});
     }
 
@@ -193,8 +187,13 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
     }
 
-    const handleNewButton =  () => {
-        if (nodeIdList.length === 0){
+    const handleNewButton = async () => {
+        setNewButtonJump(true);
+        await setTimeout(() => {
+            setNewButtonJump(false);
+        }, 500);
+
+        if (nodeIdList.length === 0) {
             showError("No nodes are found, please connect more nodes");
             return;
         }
@@ -213,24 +212,35 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
         setChildren(
             <div className="modal" onClick={(e) => e.stopPropagation()}>
                 <h2>Add new button</h2>
-                <Dropdown  initialText={nodeID} list={nodeIdList} setSelectedElement={setNodeID}/>
+                <Dropdown initialText={nodeID} list={nodeIdList} setSelectedElement={setNodeID}/>
                 <TextField setText={setNodeName}></TextField>
-                <Dropdown  initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
+                <Dropdown initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
 
                 <div className="buttons-container">
-                    <button onClick={handleCloseModal}>       Cancel </button>
-                    <button onClick={handleSubmitNewButton} > Submit </button>
+                    <button onClick={handleCloseModal}> Cancel</button>
+                    <button onClick={handleSubmitNewButton}> Submit</button>
                 </div>
             </div>
         );
         openModal();
+
+        setNewButtonJump(!newButtonJump);
     }
 
     const handleEditButton = () => {
+        setEditButtonJump(true);
+        setTimeout( () => {
+            setEditButtonJump(false);
+        }, 500);
+
         closeModal();
         setChildren(
             <div className="modal" onClick={(e) => e.stopPropagation()}>
                 <h2>{isSubmitted ? "choose location" : "Edit Button"}</h2>
+                <div className="buttons-container">
+                    <button onClick={handleCloseModal}> Cancel</button>
+                    <button onClick={handleSubmitNewButton}> Submit</button>
+                </div>
             </div>
         );
         openModal();
@@ -258,20 +268,32 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
             </div>
             <div
                 id="meshControlPanelButton"
-                className="toolbar-button"
+                className={`toolbar-button `}
                 onClick={meshControlPanel}
             >
             </div>
             <div
                 id="newButton"
-                className="toolbar-button"
+                className={`toolbar-button ${isMobileDevice() && newButtonJump ? "jumpy" : ""}`}
                 onClick={handleNewButton}
             >
 
             </div>
             <div
                 id="editButton"
-                className="toolbar-button"
+                className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
+                onClick={handleEditButton}
+            >
+            </div>
+            <div
+                id="newButton"
+                className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
+                onClick={handleEditButton}
+            >
+            </div>
+            <div
+                id="newButton"
+                className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
                 onClick={handleEditButton}
             >
             </div>
