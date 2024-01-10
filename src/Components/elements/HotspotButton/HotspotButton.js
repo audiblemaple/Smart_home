@@ -11,11 +11,14 @@ const HotspotButton = ({
                            blindOrLightOrCam: initialBlindOrLightOrCam,
                            initialIsOn,
                            nodeID,
-                           setErrorMessage
+                           setErrorMessage,
+                           buttonFilter
                        }) => {
     const [isOn, setIsOn] = useState(initialIsOn);
     const [isSetup, setIsSetUp] = useState(true);
     const [isClickable, setIsClickable] = useState(true);  // State to manage click timeout
+
+    const [shouldBeDisplayed, setShouldBeDisplayed] = useState(true);
 
     const wrapperClass = `fab-wrapper Hotspot`;
     const subButtonClass = "fas";
@@ -55,6 +58,31 @@ const HotspotButton = ({
     const toggleActive = () => {
         setIsOn(!isOn);
     };
+
+    useEffect(() => {
+        switch (buttonFilter){
+            case 0:
+                setShouldBeDisplayed(true);
+                break;
+            case 1:
+                blindOrLightOrCam !== "light" && blindOrLightOrCam !== "light_off" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+
+                break;
+            case 2:
+                blindOrLightOrCam !== "blind" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+                break;
+            case 3:
+                blindOrLightOrCam !== "cam" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+                break;
+
+            case 4:
+                blindOrLightOrCam !== "ac" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+                break;
+
+            default:
+                setShouldBeDisplayed(true); // if we got here then the button should definitely be displayed
+        }
+    }, [buttonFilter]);
 
     async function sendCommand(action) {
         if (nodeID === "????") {
@@ -159,66 +187,70 @@ const HotspotButton = ({
     };
 
     return (
-        <div
-            className={wrapperClass}
-            slot={slot}
-            data-position={position}
-            data-normal={normal}
-        >
-            <input
-                ref={checkboxRef}
-                id={slot}
-                type="checkbox"
-                className="fab-checkbox"
-                onClick={handleCheckboxClick}
-            />
-            <label
-                className={labelClass}
-                htmlFor={slot}
-                onClick={handleLightButtonClick}
-            ></label>
-            <div className="fab-wheel">
-                {blindOrLightOrCam === 'blind' && (
-                    <>
-                        <FloatingActionButton
-                            actionType="blind_up"
-                            className="fab-action-1"
-                            sendCommand={sendCommand}
-                        />
-                        <FloatingActionButton
-                            actionType="blind_down"
-                            className="fab-action-2"
-                            sendCommand={sendCommand}
-                        />
-                    </>
-                )}
-                {blindOrLightOrCam === 'light' && (
-                    <>
-                    </>
-                )}
-                {blindOrLightOrCam === 'light_off' && (
-                    <>
-                    </>
-                )}
-                {blindOrLightOrCam === 'cam' && (
-                    <>
-                    </>
-                )}
-                {blindOrLightOrCam === 'ac' && (
-                    <>
-                        <a className="fab-action fab-action-3">
-                            <i className={subButtonClass}></i>
-                        </a>
-                        <a className={`fab-action ${isOn ? 'fab-action-4' : 'fab-action-6'}`} onClick={toggleActive}>
-                            <i className={subButtonClass}></i>
-                        </a>
-                        <a className="fab-action fab-action-5">
-                            <i className={subButtonClass}></i>
-                        </a>
-                    </>
-                )}
-            </div>
-        </div>
+        <>
+            {shouldBeDisplayed && (
+                <div
+                    className={wrapperClass}
+                    slot={slot}
+                    data-position={position}
+                    data-normal={normal}
+                >
+                    <input
+                        ref={checkboxRef}
+                        id={slot}
+                        type="checkbox"
+                        className="fab-checkbox"
+                        onClick={handleCheckboxClick}
+                    />
+                    <label
+                        className={labelClass}
+                        htmlFor={slot}
+                        onClick={handleLightButtonClick}
+                    ></label>
+                    <div className="fab-wheel">
+                        {blindOrLightOrCam === 'blind' && (
+                            <>
+                                <FloatingActionButton
+                                    actionType="blind_up"
+                                    className="fab-action-1"
+                                    sendCommand={sendCommand}
+                                />
+                                <FloatingActionButton
+                                    actionType="blind_down"
+                                    className="fab-action-2"
+                                    sendCommand={sendCommand}
+                                />
+                            </>
+                        )}
+                        {blindOrLightOrCam === 'light' && (
+                            <>
+                            </>
+                        )}
+                        {blindOrLightOrCam === 'light_off' && (
+                            <>
+                            </>
+                        )}
+                        {blindOrLightOrCam === 'cam' && (
+                            <>
+                            </>
+                        )}
+                        {blindOrLightOrCam === 'ac' && (
+                            <>
+                                <a className="fab-action fab-action-3">
+                                    <i className={subButtonClass}></i>
+                                </a>
+                                <a className={`fab-action ${isOn ? 'fab-action-4' : 'fab-action-6'}`} onClick={toggleActive}>
+                                    <i className={subButtonClass}></i>
+                                </a>
+                                <a className="fab-action fab-action-5">
+                                    <i className={subButtonClass}></i>
+                                </a>
+                            </>
+                        )}
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 

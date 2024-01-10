@@ -8,7 +8,7 @@ import Dropdown from "../Dropdown/Dropdown";
 import TextField from "../TextField/TextField";
 import DraggableRectangle from "../DraggableRectangle/DraggableRectangle";
 
-function Toolbar({openModal, closeModal, setChildren, setTempButton, showError}) {
+function Toolbar({openModal, closeModal, setChildren, setTempButton, showError, setButtonFilter}) {
     const navigate = useNavigate();
     const [isClosed, setIsClosed] = useState(true);
     const toolbarRef = useRef(null); // Ref for the toolbar
@@ -22,6 +22,7 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
     const [isFirst, setIsFirst] = useState(true);
     const [newButtonJump, setNewButtonJump] = useState(false);
     const [editButtonJump, setEditButtonJump] = useState(false);
+    const [filterButtonJump, setFilterButtonJump] = useState(false);
 
     const [Point, setPoint] = useState({ x: 0, y: 0 });
 
@@ -246,6 +247,18 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
         openModal();
     }
 
+    const changeButtonFilter = (event) => {
+        event.stopPropagation();
+        setFilterButtonJump(true);
+        setTimeout( () => {
+            setFilterButtonJump(false);
+        }, 500);
+
+
+        setButtonFilter((prevFilter) => (prevFilter + 1) % 5);
+
+    };
+
     // Handle click outside toolbar
     useEffect(() => {
         function handleClickOutside(event) {
@@ -286,9 +299,9 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError})
             >
             </div>
             <div
-                id="newButton"
+                id="buttonFilter"
                 className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
-                onClick={handleEditButton}
+                onClick={changeButtonFilter}
             >
             </div>
             <div
