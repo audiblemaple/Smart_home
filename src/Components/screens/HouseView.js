@@ -57,9 +57,9 @@ const HouseView = () => {
             try {
                 const messageJson = JSON.parse(lastMessage.data);
                 // console.log("Parsed message object:", messageJson);
-                if (messageJson.msgtype === "light"){
+                if (messageJson.type === "light"){
                     setWebsocketMessage(messageJson);
-                    // console.log("Parsed message object:", messageJson);
+                    console.log("Parsed message object:", messageJson);
                 }
             } catch (e) {
                 console.error("Error parsing JSON:", e);

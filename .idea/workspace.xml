@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Added button filtering functionality, still need to change the icons when filtering.">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,15 +216,7 @@
       <workItem from="1704912093088" duration="1397000" />
       <workItem from="1704918484021" duration="6023000" />
       <workItem from="1705059502122" duration="344000" />
-      <workItem from="1705081433293" duration="11927000" />
-    </task>
-    <task id="LOCAL-00009" summary="fixed some errors">
-      <option name="closed" value="true" />
-      <created>1698701590976</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1698701590976</updated>
+      <workItem from="1705081433293" duration="12606000" />
     </task>
     <task id="LOCAL-00010" summary="added camera feed functionality">
       <option name="closed" value="true" />
@@ -614,7 +602,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704924030867</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though...">
+      <option name="closed" value="true" />
+      <created>1705102727747</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1705102727747</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +635,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="minor changes" />
     <MESSAGE value="Refactored styles and components.&#10;and added a new button." />
     <MESSAGE value="refactored the CameraFeed component to Externalpage.&#10;Added the mesh control panel" />
     <MESSAGE value="added backup for the esp mesh firmware." />
@@ -664,6 +659,7 @@
     <MESSAGE value="Fixed swapped command sending for the light." />
     <MESSAGE value="improved animation and optimized toolbar" />
     <MESSAGE value="Added button filtering functionality, still need to change the icons when filtering." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added button filtering functionality, still need to change the icons when filtering." />
+    <MESSAGE value="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though..." />
   </component>
 </project>

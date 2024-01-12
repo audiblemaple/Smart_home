@@ -47,11 +47,13 @@ const HotspotButton = ({
         if (nodeID === "????")
             return;
         // Properties not set or no websocket
-        if ( !websocketMessage || !websocketMessage.hasOwnProperty('msgtype') || !websocketMessage.hasOwnProperty('id') || !websocketMessage.hasOwnProperty('argument'))
+        if ( !websocketMessage || !websocketMessage.hasOwnProperty('type') || !websocketMessage.hasOwnProperty('id') || !websocketMessage.hasOwnProperty('argument'))
             return;
         // Not a light message, ignore
-        if (websocketMessage.msgtype !== "light" || websocketMessage.id !== nodeID)
+        if (websocketMessage.type !== "light" || websocketMessage.id !== nodeID)
             return;
+
+        console.log(websocketMessage);
 
         setIsOn(websocketMessage.argument);
 
