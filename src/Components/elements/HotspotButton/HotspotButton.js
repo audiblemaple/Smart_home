@@ -12,7 +12,8 @@ const HotspotButton = ({
                            initialIsOn,
                            nodeID,
                            setErrorMessage,
-                           buttonFilter
+                           buttonFilter,
+                           websocketMessage
                        }) => {
     const [isOn, setIsOn] = useState(initialIsOn);
     const [isSetup, setIsSetUp] = useState(true);
@@ -41,20 +42,21 @@ const HotspotButton = ({
 
     const SECOND = 1000;
 
-    // useEffect(() => {
-    //     if (isSetup){
-    //         setIsSetUp(false);
-    //         return;
-    //     }
-    //     sendCommand(isOn ? "turn_on" : "turn_off");
-    //
-    //     updateConfig(slot, isOn)
-    //         .then(r => console.log(`updated config for node: ${nodeID}`))
-    //         .catch(error => {
-    //             console.error(`Error updating config for node: ${nodeID}`, error);
-    //         });
-    // }, [isOn]);
-    //
+    useEffect(() => {
+        // No node id is set and thus this node should not be accessed at all...
+        if (nodeID === "????")
+            return;
+        // Properties not set or no websocket
+        if ( !websocketMessage || !websocketMessage.hasOwnProperty('msgtype') || !websocketMessage.hasOwnProperty('id') || !websocketMessage.hasOwnProperty('argument'))
+            return;
+        // Not a light message, ignore
+        if (websocketMessage.msgtype !== "light" || websocketMessage.id !== nodeID)
+            return;
+
+        setIsOn(websocketMessage.argument);
+
+    }, [websocketMessage]);
+
     const toggleActive = () => {
         setIsOn(!isOn);
     };
@@ -66,19 +68,16 @@ const HotspotButton = ({
                 break;
             case 1:
                 blindOrLightOrCam !== "light" && blindOrLightOrCam !== "light_off" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
-
                 break;
             case 2:
                 blindOrLightOrCam !== "blind" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
                 break;
             case 3:
-                blindOrLightOrCam !== "cam" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+                blindOrLightOrCam !== "cam"   ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
                 break;
-
             case 4:
-                blindOrLightOrCam !== "ac" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+                blindOrLightOrCam !== "ac"    ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
                 break;
-
             default:
                 setShouldBeDisplayed(true); // if we got here then the button should definitely be displayed
         }
@@ -89,7 +88,7 @@ const HotspotButton = ({
             console.log("Node ID still unknown... add it to the config!");
             return false;
         }
-        console.log(`sending: ${action} to: ${nodeID}`);
+        // console.log(`sending: ${action} to: ${nodeID}`);
 
         const data = {
             nodeID: nodeID,
@@ -167,7 +166,7 @@ const HotspotButton = ({
             focusOnHotspot(e.currentTarget.parentElement);
         if (isClickable) {
             setIsClickable(false);
-            setTimeout(() => setIsClickable(true), 1.5 * SECOND);
+            setTimeout(() => setIsClickable(true), 1.7 * SECOND);
 
             e.stopPropagation();
             const checkboxes = document.querySelectorAll('.fab-checkbox');
