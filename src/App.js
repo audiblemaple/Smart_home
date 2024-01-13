@@ -1,11 +1,9 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import HouseView from "./Components/screens/HouseView";
-import ExternalPage from "./Components/elements/ExternalPage/ExternalPage";
-import MeshLogin from "./Components/screens/MeshControlPanel/MeshLogin";
 import MeshControlPanel from "./Components/screens/MeshControlPanel/MeshLogin";
+import ExternalPage     from "./Components/elements/ExternalPage/ExternalPage";
+import MeshLogin        from "./Components/screens/MeshControlPanel/MeshLogin";
+import HouseView        from "./Components/screens/HouseView";
 import "./styles/general_style.css"
-
-
 
 function App() {
     return (
@@ -20,17 +18,4 @@ function App() {
         </BrowserRouter>
     );
 }
-
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-

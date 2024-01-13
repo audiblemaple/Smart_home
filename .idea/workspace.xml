@@ -4,28 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though...">
-      <change afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshControlPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contexts/ErrorContext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contexts/FilterContext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contexts/LoaderContext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contexts/ModalContext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Contexts/WebSocketContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Refactored prop drilled props.&#10;WebSocket is stable.&#10;Created Mesh screens.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/Modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/DraggableRectangle/DraggableRectangle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/DraggableRectangle/DraggableRectangle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/TextField/TextField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/TextField/TextField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/TextField/TextField_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/TextField/TextField_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/general_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/general_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,15 +222,7 @@
       <workItem from="1704918484021" duration="6023000" />
       <workItem from="1705059502122" duration="344000" />
       <workItem from="1705081433293" duration="12687000" />
-      <workItem from="1705133205539" duration="12853000" />
-    </task>
-    <task id="LOCAL-00011" summary="working camera feed from laptop">
-      <option name="closed" value="true" />
-      <created>1698787333999</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1698787333999</updated>
+      <workItem from="1705133205539" duration="16451000" />
     </task>
     <task id="LOCAL-00012" summary="Added new favicon &#10;Refactored some file names">
       <option name="closed" value="true" />
@@ -629,7 +608,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705103348095</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Refactored prop drilled props.&#10;WebSocket is stable.&#10;Created Mesh screens.">
+      <option name="closed" value="true" />
+      <created>1705146333343</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1705146333343</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,7 +641,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Refactored styles and components.&#10;and added a new button." />
     <MESSAGE value="refactored the CameraFeed component to Externalpage.&#10;Added the mesh control panel" />
     <MESSAGE value="added backup for the esp mesh firmware." />
     <MESSAGE value=" update the light toggle action" />
@@ -679,6 +665,7 @@
     <MESSAGE value="improved animation and optimized toolbar" />
     <MESSAGE value="Added button filtering functionality, still need to change the icons when filtering." />
     <MESSAGE value="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though..." />
+    <MESSAGE value="Refactored prop drilled props.&#10;WebSocket is stable.&#10;Created Mesh screens." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored prop drilled props.&#10;WebSocket is stable.&#10;Created Mesh screens." />
   </component>
 </project>

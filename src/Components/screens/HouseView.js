@@ -30,19 +30,18 @@ const HouseView = () => {
 
     // Run when the connection state (readyState) changes
     useEffect(() => {
-        // console.log("Connection state changed");
         switch (readyState) {
             case ReadyState.CONNECTING:
                 // console.log("connecting to websocket...");
                 showLoader()
                 break;
             case ReadyState.OPEN:
-                console.log("WebSocket connection established.");
+                // console.log("WebSocket connection established.");
                 setTimeout(() => {
                     setIsConnecting(false);
                     setIsFullScreen(false);
                     closeModal();
-                }, 1000);
+                }, 500);
                 break;
             case ReadyState.CLOSING:
                 console.log("WebSocket connection closing...");
@@ -61,7 +60,6 @@ const HouseView = () => {
     const showLoader = () =>{
         if ( !isConnecting ) return;
         setIsFullScreen(true);
-
         setChildren( <div className="loader"></div> );
         openModal();
     }

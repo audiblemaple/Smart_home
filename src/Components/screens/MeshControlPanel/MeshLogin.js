@@ -1,14 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {WebSocketContext} from "../../../Contexts/WebSocketContext"; // Import the CSS file
+import React, {useEffect, useState} from 'react';
 import "./MeshStyle.css"
 import TextField from "../../elements/TextField/TextField";
 function MeshLogin() {
-    const { sendJsonMessage } = useContext(WebSocketContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     document.title = 'Mesh Control panel login';
 
+    // TODO: implement websocket sending message
     const logIn = () =>{
         // TODO: add input validation
         const message = {
@@ -16,8 +15,6 @@ function MeshLogin() {
             username,
             password
         }
-
-        sendJsonMessage(message);
     }
 
     useEffect(() => {

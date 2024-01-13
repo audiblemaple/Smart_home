@@ -43,10 +43,7 @@ function Toolbar({setChildren, setTempButton}) {
     }, []);
 
     useEffect(() => {
-        if (isFirst){
-            setIsFirst(false);
-            return
-        }
+        if (isFirst) return setIsFirst(false);
 
         const newButton = (
             <HotspotButton
@@ -58,7 +55,7 @@ function Toolbar({setChildren, setTempButton}) {
                 initialIsOn={false}
                 nodeID={nodeID}
             />
-        );
+    );
         setTempButton(newButton);
     }, [position, Point]);
 
@@ -90,7 +87,6 @@ function Toolbar({setChildren, setTempButton}) {
         setIsLoading(true);
         try {
             const response = await fetch(`${process.env.REACT_APP_SERVER_API_URL}/getNodeIds`);
-            // console.log(response);
             if (!response.ok)
                 throw new Error('Network response was not ok');
 
@@ -189,7 +185,7 @@ function Toolbar({setChildren, setTempButton}) {
     }
 
     function isMobileDevice() {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const userAgent = navigator.userAgent || window.opera; // removed  || navigator.vendor due to deprecation, leaving comment to remember if I'll have problems
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
     }
 

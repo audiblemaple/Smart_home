@@ -1,13 +1,13 @@
-* {
-    user-select: none;
-}
-body {
-    background: radial-gradient(circle at center, lightgrey, transparent);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 25px;
-}
+/** {*/
+/*    user-select: none;*/
+/*}*/
+/*body {*/
+/*    background: radial-gradient(circle at center, lightgrey, transparent);*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    gap: 25px;*/
+/*}*/
 
 button, input, select, textarea { /* disable default mobile browser style */
     -webkit-appearance: none;
@@ -15,19 +15,19 @@ button, input, select, textarea { /* disable default mobile browser style */
     appearance: none;
 }
 
-textarea,
-input[type="text"],
-input[type="button"],
-input[type="submit"] {
+.centered-div textarea,
+.centered-div input[type="text"],
+.centered-div input[type="button"],
+.centered-div input[type="submit"] {
     -webkit-appearance: none;
     border-radius: 0;
 }
 
-h1 {
+.centered-div h1 {
     top: 3%;
     margin: auto;
 }
-h3 {
+.centered-div h3 {
     margin: 0;
 }
 
@@ -37,11 +37,11 @@ h3 {
 .has-text { /* this keeps the underline color when there is input */
     border-bottom: 2px solid #00fff7;
 }
-select:focus {
+.centered-div select:focus {
     outline: none;
 }
 
-input, select{
+.centered-div input, .centered-div select{
     font-size: 17px;
     width: 70%;
     height: 40px;
@@ -53,7 +53,7 @@ input, select{
     padding-left: 5px;
     margin: auto;
 }
-select{
+.centered-div select{
     text-align: center;
 }
 #logArea{
@@ -62,29 +62,29 @@ select{
     resize: none;
     height: 200px;
 }
-textarea::-webkit-scrollbar { /* remove scrollbar from the log box*/
+.centered-div textarea::-webkit-scrollbar { /* remove scrollbar from the log box*/
     display: none;
 }
 
-input::placeholder {
+.centered-div input::placeholder {
     font-size: 17px;
     transition: all 0.5s ease-in-out;
 }
-input:focus, select:focus {
+.centered-div input:focus, select:focus {
     outline: none;
     border-bottom: 2px solid #00fff7;
 }
-input:focus::placeholder {
+.centered-div input:focus::placeholder {
     transform: translateX(60%);
     opacity: 0.5;
 }
-canvas, #logArea{
+.centered-div canvas, #logArea{
     border: 2px solid black;
     border-radius: 20px;
     width: 90svw;
     margin: auto;
 }
-button {
+.centered-div button {
     font-size: 17px;
     cursor: pointer;
     width: 70px;
@@ -95,7 +95,7 @@ button {
     border-bottom: 2px solid black;
     margin: auto;
 }
-button:hover {
+.centered-div button:hover {
     border-bottom: 2px solid #00fff7;
 }
 
@@ -114,7 +114,7 @@ button:hover {
     margin: auto;
 }
 
-/*!* Desktop *!*/
+/* Desktop */
 @media (min-width: 1000px) {
     .centered-div {
         width: 500px;
@@ -123,7 +123,7 @@ button:hover {
     }
 }
 
-/*!* Mobile *!*/
+/* Mobile */
 @media (min-width: 1px) and (max-width: 1000px){
     .centered-div {
         width: 90svw;
