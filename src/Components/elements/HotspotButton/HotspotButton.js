@@ -1,8 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import "./Buttons_style.css";
 import FloatingActionButton from "./FloatingActionButton";
+import {ErrorContext} from "../../../Contexts/ErrorContext";
+import {FilterContext} from "../../../Contexts/FilterContext";
+import {WebSocketContext} from "../../../Contexts/WebSocketContext";
 
 const HotspotButton = ({
                            slot,
@@ -11,10 +14,11 @@ const HotspotButton = ({
                            blindOrLightOrCam: initialBlindOrLightOrCam,
                            initialIsOn,
                            nodeID,
-                           setErrorMessage,
-                           buttonFilter,
-                           websocketMessage
                        }) => {
+    const { showError } = useContext(ErrorContext);
+    const { buttonFilter } = useContext(FilterContext);
+    const { websocketMessage } = useContext(WebSocketContext);
+
     const [isOn, setIsOn] = useState(initialIsOn);
     const [isSetup, setIsSetUp] = useState(true);
     const [isClickable, setIsClickable] = useState(true);  // State to manage click timeout
@@ -52,11 +56,7 @@ const HotspotButton = ({
         // Not a light message, ignore
         if (websocketMessage.type !== "light" || websocketMessage.id !== nodeID)
             return;
-
-        console.log(websocketMessage);
-
         setIsOn(websocketMessage.argument);
-
     }, [websocketMessage]);
 
     const toggleActive = () => {
@@ -106,17 +106,13 @@ const HotspotButton = ({
                 body: JSON.stringify(data),
             });
 
-            if (!response.ok) {
+            if (!response.ok)
                 throw new Error("HTTP error");
-            }
 
             return true;
         } catch (error) {
             console.error(`Error sending command to node: ${nodeID}`, error);
-            setErrorMessage("An error occurred");
-            setTimeout(() => {
-                setErrorMessage("");
-            }, 3000);
+            showError(`Error sending command to node: ${nodeID}`, error);
             return false;
         }
     }
@@ -131,15 +127,12 @@ const HotspotButton = ({
                 body: JSON.stringify({ slot: slot, isOn: isOnValue }),
             });
 
-            if (!response.ok) {
+            if (!response.ok)
                 throw new Error(`HTTP error! Status: ${response.status}`);
-            }
+
             await response.json();
         } catch (error) {
-            setErrorMessage("An error occurred ");
-            setTimeout(() => {
-                setErrorMessage("");
-            }, 3000);
+            showError('Error updating config:', error);
             console.error('Error updating config:', error);
         }
     };
@@ -154,8 +147,7 @@ const HotspotButton = ({
             if (commandSentSuccessfully) {
                 try {
                     await updateConfig(slot, !isOn);
-                    // Toggle the light state only if the command and config update are successful
-                    setIsOn(!isOn);
+                    setIsOn(!isOn); // Toggle the light state only if the command and config update are successful
                 } catch (error) {
                     console.error("Failed to update config: ", error);
                 }

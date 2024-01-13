@@ -1,25 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
-import Slider from "../Slider/Slider";
 import "./toolbar_style.css";
 import HotspotButton from "../HotspotButton/HotspotButton";
-import "../Modal/modal_style.css"
 import Dropdown from "../Dropdown/Dropdown";
 import TextField from "../TextField/TextField";
 import DraggableRectangle from "../DraggableRectangle/DraggableRectangle";
+import {ModalContext} from "../../../Contexts/ModalContext";
+import {ErrorContext} from "../../../Contexts/ErrorContext";
+import {FilterContext} from "../../../Contexts/FilterContext";
 
-function Toolbar({openModal, closeModal, setChildren, setTempButton, showError, setButtonFilter}) {
-    const navigate = useNavigate();
-    const [isClosed, setIsClosed] = useState(true);
-    const toolbarRef = useRef(null); // Ref for the toolbar
-    const [isSubmitted, setIsSubmited] = useState(false);
-
-    const toolbarClass = isClosed ? 'toolbar_closed' : 'toolbar_open';
-
-    const positionRef = useRef({ x: 0, y: 0, z: 1 });
-    const [position, setPosition] = useState({ x: 0, y: 0, z: 1 });
+function Toolbar({setChildren, setTempButton}) {
+    const { openModal, closeModal } = useContext(ModalContext);
+    const { showError } = useContext(ErrorContext);
+    const { setButtonFilter } = useContext(FilterContext);
 
     const [isFirst, setIsFirst] = useState(true);
+
+    const navigate = useNavigate();
+    const [isClosed, setIsClosed] = useState(true);
+    const toolbarClass = isClosed ? 'toolbar_closed' : 'toolbar_open';
+    const toolbarRef = useRef(null); // Ref for the toolbar
+
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [position, setPosition] = useState({ x: 0, y: 0, z: 1 });
+
     const [newButtonJump, setNewButtonJump] = useState(false);
     const [editButtonJump, setEditButtonJump] = useState(false);
     const [filterButtonJump, setFilterButtonJump] = useState(false);
@@ -71,7 +75,7 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError, 
             <div className="modal" onClick={(e) => e.stopPropagation()}>
                 <h2>Add new button</h2>
                 <Dropdown  initialText={nodeID} list={nodeIdList} setSelectedElement={setNodeID}/>
-                <TextField setText={setNodeName}></TextField>
+                <TextField placeholder="choose node name" setText={setNodeName}></TextField>
                 <Dropdown  initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
 
                 <div className="buttons-container">
@@ -115,7 +119,8 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError, 
     };
 
     const meshControlPanel = async () => {
-        navigate('/mesh');
+        navigate('/meshLogin');
+        // navigate('/mesh');
     }
 
     const toggleToolbar = (button) => {
@@ -137,7 +142,7 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError, 
     }
 
     const handleSubmitNewButton = () => {
-        setIsSubmited(true);
+        setIsSubmitted(true);
 
         console.log(nodeID);
         if (nodeID === "Choose a node ID"){
@@ -179,7 +184,7 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError, 
         const modelViewer = document.getElementById('model');
         modelViewer.setAttribute('camera-target', "0 0 0");
         modelViewer.setAttribute('camera-orbit', '15deg 50deg 35m');
-        setIsSubmited(false);
+        setIsSubmitted(false);
         closeModal();
     }
 
@@ -194,10 +199,7 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError, 
             setNewButtonJump(false);
         }, 500);
 
-        if (nodeIdList.length === 0) {
-            showError("No nodes are found, please connect more nodes");
-            return;
-        }
+        if (nodeIdList.length === 0) return showError("No nodes are found, please connect more nodes");
 
         const modelViewer = document.getElementById('model');
         if (isMobileDevice()) {
@@ -214,7 +216,7 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError, 
             <div className="modal" onClick={(e) => e.stopPropagation()}>
                 <h2>Add new button</h2>
                 <Dropdown initialText={nodeID} list={nodeIdList} setSelectedElement={setNodeID}/>
-                <TextField setText={setNodeName}></TextField>
+                <TextField placeholder="choose node name" setText={setNodeName}></TextField>
                 <Dropdown initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
 
                 <div className="buttons-container">
@@ -234,7 +236,6 @@ function Toolbar({openModal, closeModal, setChildren, setTempButton, showError, 
             setEditButtonJump(false);
         }, 500);
 
-        closeModal();
         setChildren(
             <div className="modal" onClick={(e) => e.stopPropagation()}>
                 <h2>{isSubmitted ? "choose location" : "Edit Button"}</h2>

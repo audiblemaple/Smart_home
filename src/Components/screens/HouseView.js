@@ -5,36 +5,44 @@ import Toolbar from '../elements/toolbar/Toolbar';
 import Modal from "../elements/Modal/Modal";
 import ErrorPopup from "../elements/Popup/ErrorPopup";
 import useWebSocket, {ReadyState} from "react-use-websocket";
-
+import {ErrorContext} from '../../Contexts/ErrorContext'
+import {ModalContext} from "../../Contexts/ModalContext";
+import {FilterContext} from "../../Contexts/FilterContext";
+import {WebSocketContext} from "../../Contexts/WebSocketContext";
+import {LoaderContext} from "../../Contexts/LoaderContext";
 const HouseView = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [children, setChildren] = useState(false);
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const [isConnecting, setIsConnecting] = useState(true);
+
+    const [children, setChildren] = useState(<></>);
     const [tempButton, setTempButton] = useState(null);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState("");
 
     const [buttonFilter, setButtonFilter] = useState(0);
 
-    const [websocketMessage, setWebsocketMessage] = useState(null);
+    const [websocketMessage, setWebsocketMessage] = useState("");
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
-    const { sendJsonMessage, lastMessage, readyState
-    } = useWebSocket(process.env.REACT_APP_SERVER_WEBSOCKET, {
-            share: false,
-            shouldReconnect: () => true,
-            formats: ['binary'],
-    });
+    const { sendJsonMessage, lastMessage, readyState} = useWebSocket(process.env.REACT_APP_SERVER_WEBSOCKET, { share: false, shouldReconnect: () => true, formats: ['binary'], });
 
     // Run when the connection state (readyState) changes
     useEffect(() => {
         // console.log("Connection state changed");
         switch (readyState) {
             case ReadyState.CONNECTING:
-                console.log("connecting to websocket...");
+                // console.log("connecting to websocket...");
+                showLoader()
                 break;
             case ReadyState.OPEN:
                 console.log("WebSocket connection established.");
+                setTimeout(() => {
+                    setIsConnecting(false);
+                    setIsFullScreen(false);
+                    closeModal();
+                }, 1000);
                 break;
             case ReadyState.CLOSING:
                 console.log("WebSocket connection closing...");
@@ -48,19 +56,21 @@ const HouseView = () => {
             default:
                 console.log("undefined websocket state...");
         }
-
     }, [readyState]);
 
-    // Run when a new WebSocket message is received (lastJsonMessage)
-    useEffect(() => {
+    const showLoader = () =>{
+        if ( !isConnecting ) return;
+        setIsFullScreen(true);
+
+        setChildren( <div className="loader"></div> );
+        openModal();
+    }
+
+    useEffect(() => { // Run when a new WebSocket message is received (lastJsonMessage)
         if (lastMessage) {
             try {
                 const messageJson = JSON.parse(lastMessage.data);
-                // console.log("Parsed message object:", messageJson);
-                if (messageJson.type === "light"){
-                    setWebsocketMessage(messageJson);
-                    console.log("Parsed message object:", messageJson);
-                }
+                if (messageJson.type === "light") setWebsocketMessage(messageJson);
             } catch (e) {
                 console.error("Error parsing JSON:", e);
             }
@@ -77,16 +87,29 @@ const HouseView = () => {
 
     return (
         <div className="container">
-            <div className="box">
-                <ModelViewer tempButton={tempButton} setTempButton={setTempButton} setErrorMessage={setErrorMessage} errorMessage={errorMessage} buttonFilter={buttonFilter} websocketMessage={websocketMessage}/>
-            </div>
-            <Banner text="Smart home" />
-            <Toolbar openModal={openModal} closeModal={closeModal} setChildren={setChildren} setTempButton={setTempButton} showError={showError} setButtonFilter={setButtonFilter}/>
-            {isModalOpen && (
-                <Modal isOpen={isModalOpen} onClose={closeModal} children={children}>
-                </Modal>
-            )}
-            {errorMessage &&  <ErrorPopup message={errorMessage} />}
+            <ErrorContext.Provider      value={{showError}}>
+            <ModalContext.Provider      value={{isModalOpen, openModal, closeModal, isFullScreen, setIsFullScreen}}>
+            <FilterContext.Provider     value={{buttonFilter, setButtonFilter}}>
+            <WebSocketContext.Provider  value={{websocketMessage, sendJsonMessage}}>
+            <LoaderContext.Provider     value={showLoader}>
+
+                <div className="box">
+                    <ModelViewer tempButton={tempButton}/>
+                </div>
+                <Banner text="Smart home"/>
+
+                <Toolbar setChildren={setChildren} setTempButton={setTempButton}/>
+                {isModalOpen && (
+                    <Modal children={children}>
+                    </Modal>
+                )}
+                {errorMessage &&  <ErrorPopup message={errorMessage} />}
+
+            </LoaderContext.Provider>
+            </WebSocketContext.Provider>
+            </FilterContext.Provider>
+            </ModalContext.Provider>
+            </ErrorContext.Provider>
         </div>
     );
 }

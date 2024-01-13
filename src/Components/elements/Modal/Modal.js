@@ -1,13 +1,19 @@
-import React from 'react';
-import './modal_style.css'; // Import the CSS file
+import React, {useContext} from 'react';
+import './modal_style.css';
+import {ModalContext} from "../../../Contexts/ModalContext"; // Import the CSS file
 
-function Modal({ isOpen, onClose, children }) {
-    if (!isOpen) return null;
+function Modal({ children }) {
+    const { isModalOpen, closeModal, isFullScreen } = useContext(ModalContext);
 
     return (
-        <div className="modal-overlay" onClick={onClose}>
-            {children}
-        </div>
+        <>
+            {isModalOpen && (
+                <div className={`modal-overlay ${isFullScreen ? "fullscreen" : ""}`}>
+                    {children}
+                </div>
+            )}
+        </>
+
     );
 }
 

@@ -8,7 +8,7 @@ function ErrorPopup({ message }) {
         if (message) {
             setShowPopup(true);
             setTimeout(() => {
-                console.log(showPopup);
+                // console.log(showPopup);
                 setShowPopup(false);
             }, (Number(process.env.REACT_APP_ERROR_DISPLAY_DURATION) || 3) * 1000);
         }

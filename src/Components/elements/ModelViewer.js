@@ -1,10 +1,7 @@
 import HotspotButton from "./HotspotButton/HotspotButton";
-import React, {useEffect, useState} from "react";
-import ErrorPopup from "./Popup/ErrorPopup";
-
-function ModelViewer( {tempButton, setTempButton, setErrorMessage, errorMessage, buttonFilter, websocketMessage}) {
+import React, {useContext, useEffect, useState} from "react";
+function ModelViewer( {tempButton}) {
     const [hotspotConfig, setHotspotConfig] = useState({});
-
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_SERVER_API_URL}/config`)
@@ -48,9 +45,6 @@ function ModelViewer( {tempButton, setTempButton, setErrorMessage, errorMessage,
                     blindOrLightOrCam = {hotspot.type}
                     initialIsOn       = {hotspot.isOn}
                     nodeID            = {hotspot.nodeID}
-                    setErrorMessage   = {setErrorMessage}
-                    buttonFilter      = {buttonFilter}
-                    websocketMessage  = {websocketMessage}
                 />
             ))}
             {tempButton}

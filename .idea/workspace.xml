@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though...">
+      <change afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshControlPanel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshLogin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Contexts/ErrorContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Contexts/FilterContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Contexts/LoaderContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Contexts/ModalContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Contexts/WebSocketContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/Modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Popup/ErrorPopup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/TextField/TextField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/TextField/TextField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/TextField/TextField_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/TextField/TextField_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/general_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/general_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,11 +110,11 @@
       <recent name="D:\smart_home\smart_home_try_2\src\styles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\smart_home\src\Components\screens\MeshControlPanel" />
       <recent name="D:\smart_home\src\Components\elements\DraggableRectangle" />
       <recent name="D:\smart_home\src\Components\elements\HotspotButton" />
       <recent name="D:\smart_home\src\Components\elements\DropDown" />
       <recent name="D:\smart_home\src\temp" />
-      <recent name="D:\smart_home\src" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -216,15 +234,8 @@
       <workItem from="1704912093088" duration="1397000" />
       <workItem from="1704918484021" duration="6023000" />
       <workItem from="1705059502122" duration="344000" />
-      <workItem from="1705081433293" duration="12606000" />
-    </task>
-    <task id="LOCAL-00010" summary="added camera feed functionality">
-      <option name="closed" value="true" />
-      <created>1698785088940</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1698785088940</updated>
+      <workItem from="1705081433293" duration="12687000" />
+      <workItem from="1705133205539" duration="12853000" />
     </task>
     <task id="LOCAL-00011" summary="working camera feed from laptop">
       <option name="closed" value="true" />
@@ -610,7 +621,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705102727747</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though...">
+      <option name="closed" value="true" />
+      <created>1705103348095</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1705103348095</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

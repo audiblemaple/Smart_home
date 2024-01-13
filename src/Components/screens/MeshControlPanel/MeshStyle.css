@@ -1,0 +1,135 @@
+* {
+    user-select: none;
+}
+body {
+    background: radial-gradient(circle at center, lightgrey, transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
+
+button, input, select, textarea { /* disable default mobile browser style */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+h1 {
+    top: 3%;
+    margin: auto;
+}
+h3 {
+    margin: 0;
+}
+
+.text{
+    padding-left: 10px;
+}
+.has-text { /* this keeps the underline color when there is input */
+    border-bottom: 2px solid #00fff7;
+}
+select:focus {
+    outline: none;
+}
+
+input, select{
+    font-size: 17px;
+    width: 70%;
+    height: 40px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    transition: border-bottom 0.3s ease-in-out, transform 0.7s ease-in-out;
+    padding-left: 5px;
+    margin: auto;
+}
+select{
+    text-align: center;
+}
+#logArea{
+    padding-top: 10px;
+    padding-left: 10px;
+    resize: none;
+    height: 200px;
+}
+textarea::-webkit-scrollbar { /* remove scrollbar from the log box*/
+    display: none;
+}
+
+input::placeholder {
+    font-size: 17px;
+    transition: all 0.5s ease-in-out;
+}
+input:focus, select:focus {
+    outline: none;
+    border-bottom: 2px solid #00fff7;
+}
+input:focus::placeholder {
+    transform: translateX(60%);
+    opacity: 0.5;
+}
+canvas, #logArea{
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 90svw;
+    margin: auto;
+}
+button {
+    font-size: 17px;
+    cursor: pointer;
+    width: 70px;
+    height: 30px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    margin: auto;
+}
+button:hover {
+    border-bottom: 2px solid #00fff7;
+}
+
+.centered-div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: auto;
+    padding: 10px 20px 35px;
+    gap: 20px;
+}
+
+.forgot{
+    text-decoration: underline;
+    margin: auto;
+}
+
+/*!* Desktop *!*/
+@media (min-width: 1000px) {
+    .centered-div {
+        width: 500px;
+        border: 2px solid black;
+        border-radius: 30px;
+    }
+}
+
+/*!* Mobile *!*/
+@media (min-width: 1px) and (max-width: 1000px){
+    .centered-div {
+        width: 90svw;
+        padding: 10px;
+        border: none;
+    }
+}
+
+

@@ -1,15 +1,15 @@
 import React, { useState} from 'react';
 import PropTypes from 'prop-types';
 import "./TextField_style.css"
-const TextField = ({ setText }) => {
+const TextField = ({ placeholder, type, setText }) => {
 
     const [inputText, setInputText] = useState("");
 
     return (
         <input
             className="input-container"
-            type="text"
-            placeholder="Choose a name"
+            type={type ? type : "text"}
+            placeholder={placeholder}
             value={inputText}
             onChange={(event) => {
                 setInputText(event.target.value);
