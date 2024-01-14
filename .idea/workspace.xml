@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Refactored prop drilled props.&#10;WebSocket is stable.&#10;Created Mesh screens.">
+    <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Fixed bug where the drag box was reacting to mouse movement straight away, not waiting for the click and drag.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/DraggableRectangle/DraggableRectangle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/DraggableRectangle/DraggableRectangle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Modal/modal_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/Buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/Buttons_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/ModelViewer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/toolbar_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/toolbar_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/screens/HouseView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/HouseView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/screens/MeshControlPanel/MeshStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,15 +221,8 @@
       <workItem from="1704918484021" duration="6023000" />
       <workItem from="1705059502122" duration="344000" />
       <workItem from="1705081433293" duration="12687000" />
-      <workItem from="1705133205539" duration="16451000" />
-    </task>
-    <task id="LOCAL-00012" summary="Added new favicon &#10;Refactored some file names">
-      <option name="closed" value="true" />
-      <created>1699089830407</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1699089830407</updated>
+      <workItem from="1705133205539" duration="16687000" />
+      <workItem from="1705171678042" duration="12925000" />
     </task>
     <task id="LOCAL-00013" summary="Updated Readme">
       <option name="closed" value="true" />
@@ -616,7 +608,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705146333343</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Fixed bug where the drag box was reacting to mouse movement straight away, not waiting for the click and drag.">
+      <option name="closed" value="true" />
+      <created>1705149826329</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1705149826331</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +641,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="refactored the CameraFeed component to Externalpage.&#10;Added the mesh control panel" />
     <MESSAGE value="added backup for the esp mesh firmware." />
     <MESSAGE value=" update the light toggle action" />
     <MESSAGE value="updated config ip" />
@@ -666,6 +665,7 @@
     <MESSAGE value="Added button filtering functionality, still need to change the icons when filtering." />
     <MESSAGE value="Implemented functionality for updating the node light statuses in real time using websocket.&#10;Still need to remove property drilling though..." />
     <MESSAGE value="Refactored prop drilled props.&#10;WebSocket is stable.&#10;Created Mesh screens." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored prop drilled props.&#10;WebSocket is stable.&#10;Created Mesh screens." />
+    <MESSAGE value="Fixed bug where the drag box was reacting to mouse movement straight away, not waiting for the click and drag." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where the drag box was reacting to mouse movement straight away, not waiting for the click and drag." />
   </component>
 </project>

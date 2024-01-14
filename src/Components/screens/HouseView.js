@@ -80,7 +80,7 @@ const HouseView = () => {
         setErrorMessage(error);
         setTimeout(() => {
             setErrorMessage("");
-        }, ((Number(process.env.REACT_APP_ERROR_DISPLAY_DURATION) || 2) * 1000) + 500); // regular error time + 0.5 seconds for the message to reset.
+        }, ((Number(process.env.REACT_APP_ERROR_DISPLAY_DURATION) || 2) * 1000) + 300); // regular error time + animation time the message to go up.
     }
 
     return (

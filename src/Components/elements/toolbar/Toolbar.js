@@ -8,6 +8,7 @@ import DraggableRectangle from "../DraggableRectangle/DraggableRectangle";
 import {ModalContext} from "../../../Contexts/ModalContext";
 import {ErrorContext} from "../../../Contexts/ErrorContext";
 import {FilterContext} from "../../../Contexts/FilterContext";
+import PropTypes from "prop-types";
 
 function Toolbar({setChildren, setTempButton}) {
     const { openModal, closeModal } = useContext(ModalContext);
@@ -23,6 +24,7 @@ function Toolbar({setChildren, setTempButton}) {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0, z: 1 });
+    const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0, z: 1 });
 
     const [newButtonJump, setNewButtonJump] = useState(false);
     const [editButtonJump, setEditButtonJump] = useState(false);
@@ -51,11 +53,11 @@ function Toolbar({setChildren, setTempButton}) {
                 slot="hotspot-19"
                 position={`${Point.x / 5}m ${type === "light" ? 1.1 : 0.2 }m ${Point.y / 5}m`}
                 normal="0m 1m 0m"
-                blindOrLightOrCam={type}
+                buttonType={type}
                 initialIsOn={false}
                 nodeID={nodeID}
             />
-    );
+        );
         setTempButton(newButton);
     }, [position, Point]);
 
@@ -87,22 +89,18 @@ function Toolbar({setChildren, setTempButton}) {
         setIsLoading(true);
         try {
             const response = await fetch(`${process.env.REACT_APP_SERVER_API_URL}/getNodeIds`);
-            if (!response.ok)
-                throw new Error('Network response was not ok');
+            if (!response.ok) throw new Error('Network response was not ok');
 
             const json = await response.json();
             if ( !json.success){
                 showError("Error fetching node IDs");
                 return;
             }
-
             const nodeIdListFromJson = json.list.subs.map(sub => sub.nodeId);
-
             setNodeIdList(nodeIdListFromJson);
 
         } catch (error) {
             showError(error.message);
-
         } finally {
             setIsLoading(false);
         }
@@ -139,22 +137,16 @@ function Toolbar({setChildren, setTempButton}) {
 
     const handleSubmitNewButton = () => {
         setIsSubmitted(true);
-
-        console.log(nodeID);
         if (nodeID === "Choose a node ID"){
             console.log("Node ID must be chosen!");
             showError("Must choose node ID!");
             return;
         }
-
-        console.log(nodeName);
         if (nodeName === ""){
             console.log("Name must not be empty!");
             showError("Name must not be empty!");
             return;
         }
-
-        console.log(type);
         if (type === "Choose button type"){
             console.log("Must choose button Type!");
             showError("Must choose button Type!");
@@ -167,7 +159,7 @@ function Toolbar({setChildren, setTempButton}) {
                     <DraggableRectangle Point={Point} setPoint={setPoint}></DraggableRectangle>
                     <div className="buttons-container">
                         <button onClick={handleCloseModal}> Cancel</button>
-                        <button onClick={handleSubmitNewButton}> Submit</button>
+                        <button onClick={handleSaveButton}> Submit</button>
                     </div>
                 </div>
             );
@@ -176,10 +168,50 @@ function Toolbar({setChildren, setTempButton}) {
         setPosition({x: 0, y: 0, z: 1});
     }
 
-    const handleSavebutton = () => {
+    const handleSaveButton = async () => {
         const modelViewer = document.getElementById('model');
         modelViewer.setAttribute('camera-target', "0 0 0");
         modelViewer.setAttribute('camera-orbit', '15deg 50deg 35m');
+
+        const dataPosition = `${Point.x / 5}m ${type === "light" ? 1.1 : 0.2 }m ${Point.y / 5}m`
+        const buttonDataPosition = `${buttonPosition.x }m ${buttonPosition.z}m ${buttonPosition.y}m`
+        const newButton = {
+            name: nodeName,
+            nodeID: nodeID,
+            "data-position": buttonDataPosition,
+            "data-normal": "0m 1m 0m",
+            type: type,
+            isOn: false
+        }
+
+        try {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_API_URL}/configAddHotspot`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newButton)
+            });
+
+            if (response.status === 400) {
+                closeModal();
+                setTempButton(null);
+                return showError("Node already exists!");
+            }
+
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+            const result = await response.json();
+            console.log('New node added successfully!', result);
+            showError('New node added successfully!'); // TODO: add good messages functionality.
+            await setTimeout(() => {
+                window.location.reload();
+            }, 700);
+        } catch (error) {
+            showError("Error adding new button", error);
+            // console.error('Error:', error);
+        }
+
         setIsSubmitted(false);
         closeModal();
     }
@@ -244,6 +276,10 @@ function Toolbar({setChildren, setTempButton}) {
         openModal();
     }
 
+    const handleButtonInfo = () => {
+        console.log("not implemented");
+    }
+
     const changeButtonFilter = (event) => {
         event.stopPropagation();
         setFilterButtonJump(true);
@@ -251,17 +287,13 @@ function Toolbar({setChildren, setTempButton}) {
             setFilterButtonJump(false);
         }, 500);
 
-
         setButtonFilter((prevFilter) => (prevFilter + 1) % 5);
-
     };
 
     // Handle click outside toolbar
     useEffect(() => {
         function handleClickOutside(event) {
-            if (toolbarRef.current && !toolbarRef.current.contains(event.target)) {
-                setIsClosed(true); // Close the toolbar if clicked outside and its open
-            }
+            if (toolbarRef.current && !toolbarRef.current.contains(event.target)) setIsClosed(true); // Close the toolbar if clicked outside and its open
         }
         document.addEventListener("click", handleClickOutside);
         return () => {
@@ -287,7 +319,6 @@ function Toolbar({setChildren, setTempButton}) {
                 className={`toolbar-button ${isMobileDevice() && newButtonJump ? "jumpy" : ""}`}
                 onClick={handleNewButton}
             >
-
             </div>
             <div
                 id="editButton"
@@ -297,14 +328,14 @@ function Toolbar({setChildren, setTempButton}) {
             </div>
             <div
                 id="buttonFilter"
-                className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
+                className={`toolbar-button ${isMobileDevice() && filterButtonJump ? "jumpy" : ""}`}
                 onClick={changeButtonFilter}
             >
             </div>
             <div
-                id="newButton"
+                id="button-info"
                 className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
-                onClick={handleEditButton}
+                onClick={handleButtonInfo}
             >
             </div>
         </div>

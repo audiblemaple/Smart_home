@@ -42,7 +42,7 @@ function ModelViewer( {tempButton}) {
                     slot              = {id}
                     position          = {hotspot['data-position']}
                     normal            = {hotspot['data-normal']}
-                    blindOrLightOrCam = {hotspot.type}
+                    buttonType        = {hotspot.type}
                     initialIsOn       = {hotspot.isOn}
                     nodeID            = {hotspot.nodeID}
                 />

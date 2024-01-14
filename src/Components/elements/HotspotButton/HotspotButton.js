@@ -11,7 +11,7 @@ const HotspotButton = ({
                            slot,
                            position,
                            normal,
-                           blindOrLightOrCam: initialBlindOrLightOrCam,
+                           buttonType: initialButtonTypeState,
                            initialIsOn,
                            nodeID,
                        }) => {
@@ -28,16 +28,16 @@ const HotspotButton = ({
     const wrapperClass = `fab-wrapper Hotspot`;
     const subButtonClass = "fas";
 
-    const blindOrLightOrCam = initialBlindOrLightOrCam === 'light' || initialBlindOrLightOrCam === 'light_off'
+    const buttonType = initialButtonTypeState === 'light' || initialButtonTypeState === 'light_off'
         ? (isOn ? 'light' : 'light_off')
-        : initialBlindOrLightOrCam;
-    const labelClass = blindOrLightOrCam === 'blind'
+        : initialButtonTypeState;
+    const labelClass = buttonType === 'blind'
         ? 'fab-blind'
-        : blindOrLightOrCam === 'light'
+        : buttonType === 'light'
             ? 'fab-light'
-            : blindOrLightOrCam === 'light_off'
+            : buttonType === 'light_off'
                 ? 'fab-light-off'
-                : blindOrLightOrCam === 'cam'
+                : buttonType === 'cam'
                     ? 'fab-cam'
                     : 'fab-ac';
 
@@ -69,19 +69,21 @@ const HotspotButton = ({
                 setShouldBeDisplayed(true);
                 break;
             case 1:
-                blindOrLightOrCam !== "light" && blindOrLightOrCam !== "light_off" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+                buttonType !== "light" && buttonType !== "light_off" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
                 break;
             case 2:
-                blindOrLightOrCam !== "blind" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+                buttonType !== "blind" ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
                 break;
             case 3:
-                blindOrLightOrCam !== "cam"   ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+                buttonType !== "cam"   ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
                 break;
             case 4:
-                blindOrLightOrCam !== "ac"    ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
+                buttonType !== "ac"    ? setShouldBeDisplayed(false) : setShouldBeDisplayed(true);
                 break;
             default:
-                setShouldBeDisplayed(true); // if we got here then the button should definitely be displayed
+                setShouldBeDisplayed(true); // If we got here then a new type was added and not updated so the button should definitely be displayed
+                console.warn("New unknown button type.");
+                break;
         }
     }, [buttonFilter]);
 
@@ -106,8 +108,7 @@ const HotspotButton = ({
                 body: JSON.stringify(data),
             });
 
-            if (!response.ok)
-                throw new Error("HTTP error");
+            if (!response.ok) throw new Error("HTTP error");
 
             return true;
         } catch (error) {
@@ -127,8 +128,7 @@ const HotspotButton = ({
                 body: JSON.stringify({ slot: slot, isOn: isOnValue }),
             });
 
-            if (!response.ok)
-                throw new Error(`HTTP error! Status: ${response.status}`);
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
             await response.json();
         } catch (error) {
@@ -138,7 +138,7 @@ const HotspotButton = ({
     };
 
     const handleLightButtonClick = async () => {
-        if (isClickable && ['light', 'light_off'].includes(blindOrLightOrCam)) {
+        if (isClickable && ['light', 'light_off'].includes(buttonType)) {
             setIsClickable(false);
             setTimeout(() => setIsClickable(true), 0.4 * SECOND);
 
@@ -156,7 +156,7 @@ const HotspotButton = ({
     };
 
     const handleCheckboxClick = async (e) => {
-        if (blindOrLightOrCam === "ac")
+        if (buttonType === "ac")
             focusOnHotspot(e.currentTarget.parentElement);
         if (isClickable) {
             setIsClickable(false);
@@ -166,8 +166,7 @@ const HotspotButton = ({
             const checkboxes = document.querySelectorAll('.fab-checkbox');
             checkboxes.forEach(checkbox => checkbox.checked = false);
             checkboxRef.current.checked = true;
-            if (blindOrLightOrCam === "cam")
-                navigate('/cam');
+            if (buttonType === "cam") navigate('/cam');
         }
     };
 
@@ -201,7 +200,7 @@ const HotspotButton = ({
                         onClick={handleLightButtonClick}
                     ></label>
                     <div className="fab-wheel">
-                        {blindOrLightOrCam === 'blind' && (
+                        {buttonType === 'blind' && (
                             <>
                                 <FloatingActionButton
                                     actionType="blind_up"
@@ -215,19 +214,16 @@ const HotspotButton = ({
                                 />
                             </>
                         )}
-                        {blindOrLightOrCam === 'light' && (
-                            <>
-                            </>
+                        {buttonType === 'light' && (
+                            <></>
                         )}
-                        {blindOrLightOrCam === 'light_off' && (
-                            <>
-                            </>
+                        {buttonType === 'light_off' && (
+                            <></>
                         )}
-                        {blindOrLightOrCam === 'cam' && (
-                            <>
-                            </>
+                        {buttonType === 'cam' && (
+                            <></>
                         )}
-                        {blindOrLightOrCam === 'ac' && (
+                        {buttonType === 'ac' && (
                             <>
                                 <a className="fab-action fab-action-3">
                                     <i className={subButtonClass}></i>
@@ -251,7 +247,7 @@ HotspotButton.propTypes = {
     slot: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
     normal: PropTypes.string.isRequired,
-    blindOrLightOrCam: PropTypes.oneOf(['blind', 'light', 'light_off', 'cam', 'ac']).isRequired,
+    buttonType: PropTypes.oneOf(['blind', 'light', 'light_off', 'cam', 'ac']).isRequired,
 };
 
 export default HotspotButton;
