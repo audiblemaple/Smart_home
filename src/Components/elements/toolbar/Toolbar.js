@@ -9,6 +9,7 @@ import {ModalContext} from "../../../Contexts/ModalContext";
 import {ErrorContext} from "../../../Contexts/ErrorContext";
 import {FilterContext} from "../../../Contexts/FilterContext";
 import PropTypes from "prop-types";
+import FileUploader from "../FileUploader/FileUploader";
 
 function Toolbar({setChildren, setTempButton}) {
     const { openModal, closeModal } = useContext(ModalContext);
@@ -254,7 +255,6 @@ function Toolbar({setChildren, setTempButton}) {
             </div>
         );
         openModal();
-
         setNewButtonJump(!newButtonJump);
     }
 
@@ -280,10 +280,55 @@ function Toolbar({setChildren, setTempButton}) {
         console.log("not implemented");
     }
 
+    const handleHomeClick = () => {
+        closeModal();
+        setChildren(
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <h2>House control</h2>
+                <div className="buttons-container">
+                    <button onClick={handleFileUpload}> Upload file</button>
+                    <button onClick={handleModelSelect}> Change model</button>
+                </div>
+                <div className="buttons-container">
+                    <button onClick={handleCloseModal}> Cancel</button>
+                    <button > Change skybox</button>
+                </div>
+
+            </div>
+        );
+        openModal();
+    }
+
+    const handleFileUpload = () => {
+        closeModal();
+        setChildren(
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <h2>Upload a house model or skybox picture</h2>
+                <FileUploader handleCloseModal={handleCloseModal}/>
+            </div>
+        );
+        openModal();
+    }
+
+    const handleModelSelect = () => {
+        closeModal();
+        setChildren(
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <h2>Select Model</h2>
+                <Dropdown initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
+                <div className="buttons-container">
+                    <button onClick={handleCloseModal}> Cancel</button>
+                    <button onClick={handleSubmitNewButton}> Submit</button>
+                </div>
+            </div>
+        );
+        openModal();
+    }
+
     const changeButtonFilter = (event) => {
         event.stopPropagation();
         setFilterButtonJump(true);
-        setTimeout( () => {
+        setTimeout(() => {
             setFilterButtonJump(false);
         }, 500);
 
@@ -312,6 +357,12 @@ function Toolbar({setChildren, setTempButton}) {
                 id="meshControlPanelButton"
                 className={`toolbar-button `}
                 onClick={meshControlPanel}
+            >
+            </div>
+            <div
+                id="change-models"
+                className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
+                onClick={handleHomeClick}
             >
             </div>
             <div

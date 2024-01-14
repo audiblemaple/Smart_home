@@ -1,5 +1,5 @@
 import HotspotButton from "./HotspotButton/HotspotButton";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 function ModelViewer( {tempButton}) {
     const [hotspotConfig, setHotspotConfig] = useState({});
 
@@ -11,21 +11,18 @@ function ModelViewer( {tempButton}) {
                 }
                 return response.json();
             })
-            .then(data => {
-                // console.log('Fetched hotspot config:', data); // Log the fetched data
-                setHotspotConfig(data);
-            })
+            .then(data => setHotspotConfig(data))
             .catch(error => console.error('Error fetching config:', error));
     }, []);
 
     return (
         <model-viewer
             id="model"
-            src="Home_model.glb"
+            src={`${process.env.REACT_APP_SERVER_PUBLIC_URL}/models/Home_model.glb`}
             camera-controls=""
             exposure="0.65"
-            environment-image="Background_skybox.hdr"
-            skybox-image="Background_skybox.hdr"
+            environment-image={`${process.env.REACT_APP_SERVER_PUBLIC_URL}/skyBoxes/Background_skybox.hdr`}
+            skybox-image={`${process.env.REACT_APP_SERVER_PUBLIC_URL}/skyBoxes/Background_skybox.hdr`}
             shadow-intensity="2"
             shadow-softness="1"
             disable-tap=""
@@ -38,13 +35,13 @@ function ModelViewer( {tempButton}) {
         >
             {Object.entries(hotspotConfig).map(([id, hotspot]) => (
                 <HotspotButton
-                    key               = {id}
-                    slot              = {id}
-                    position          = {hotspot['data-position']}
-                    normal            = {hotspot['data-normal']}
-                    buttonType        = {hotspot.type}
-                    initialIsOn       = {hotspot.isOn}
-                    nodeID            = {hotspot.nodeID}
+                    key         = {id}
+                    slot        = {id}
+                    position    = {hotspot['data-position']}
+                    normal      = {hotspot['data-normal']}
+                    buttonType  = {hotspot.type}
+                    initialIsOn = {hotspot.isOn}
+                    nodeID      = {hotspot.nodeID}
                 />
             ))}
             {tempButton}
