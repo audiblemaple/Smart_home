@@ -284,16 +284,18 @@ function Toolbar({setChildren, setTempButton}) {
         closeModal();
         setChildren(
             <div className="modal" onClick={(e) => e.stopPropagation()}>
-                <h2>House control</h2>
+                <h2>Model settings</h2>
                 <div className="buttons-container">
-                    <button onClick={handleFileUpload}> Upload file</button>
-                    <button onClick={handleModelSelect}> Change model</button>
+                    <button id="file-upload" className="icon" onClick={handleFileUpload}></button>
+                    <button id="file-remove" className="icon" onClick={handleModelSelect}></button>
+                </div>
+                <div className="buttons-container">
+                    <button id="model-change" className="icon" onClick={handleModelSelect}></button>
+                    <button id="sky-box-change" className="icon" onClick={handleCloseModal}></button>
                 </div>
                 <div className="buttons-container">
                     <button onClick={handleCloseModal}> Cancel</button>
-                    <button > Change skybox</button>
                 </div>
-
             </div>
         );
         openModal();
@@ -304,7 +306,7 @@ function Toolbar({setChildren, setTempButton}) {
         setChildren(
             <div className="modal" onClick={(e) => e.stopPropagation()}>
                 <h2>Upload a house model or skybox picture</h2>
-                <FileUploader handleCloseModal={handleCloseModal}/>
+                <FileUploader handleCloseModal={handleHomeClick}/>
             </div>
         );
         openModal();
@@ -317,8 +319,47 @@ function Toolbar({setChildren, setTempButton}) {
                 <h2>Select Model</h2>
                 <Dropdown initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
                 <div className="buttons-container">
-                    <button onClick={handleCloseModal}> Cancel</button>
+                    <button onClick={handleHomeClick}> Cancel</button>
                     <button onClick={handleSubmitNewButton}> Submit</button>
+                </div>
+            </div>
+        );
+        openModal();
+    }
+
+    const handleNodeSettings = () => {
+        closeModal();
+        setChildren(
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <h2>Node options</h2>
+                <div className="buttons-container">
+                    <div
+                        id="newButton"
+                        className={`toolbar-button ${isMobileDevice() && newButtonJump ? "jumpy" : ""}`}
+                        onClick={handleNewButton}
+                    >
+                    </div>
+                    <div
+                        id="editButton"
+                        className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
+                        onClick={handleEditButton}
+                    >
+                    </div>
+                    <div
+                        id="buttonFilter"
+                        className={`toolbar-button ${isMobileDevice() && filterButtonJump ? "jumpy" : ""}`}
+                        onClick={changeButtonFilter}
+                    >
+                    </div>
+                    <div
+                        id="button-info"
+                        className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
+                        onClick={handleButtonInfo}
+                    >
+                    </div>
+                </div>
+                <div className="buttons-container">
+                    <button onClick={handleCloseModal}> Cancel</button>
                 </div>
             </div>
         );
@@ -366,27 +407,9 @@ function Toolbar({setChildren, setTempButton}) {
             >
             </div>
             <div
-                id="newButton"
-                className={`toolbar-button ${isMobileDevice() && newButtonJump ? "jumpy" : ""}`}
-                onClick={handleNewButton}
-            >
-            </div>
-            <div
-                id="editButton"
-                className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
-                onClick={handleEditButton}
-            >
-            </div>
-            <div
-                id="buttonFilter"
+                id="button-settings"
                 className={`toolbar-button ${isMobileDevice() && filterButtonJump ? "jumpy" : ""}`}
-                onClick={changeButtonFilter}
-            >
-            </div>
-            <div
-                id="button-info"
-                className={`toolbar-button ${isMobileDevice() && editButtonJump ? "jumpy" : ""}`}
-                onClick={handleButtonInfo}
+                onClick={handleNodeSettings}
             >
             </div>
         </div>
