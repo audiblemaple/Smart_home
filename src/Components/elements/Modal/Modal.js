@@ -3,7 +3,7 @@ import './modal_style.css';
 import {ModalContext} from "../../../Contexts/ModalContext"; // Import the CSS file
 
 function Modal({ children }) {
-    const { isModalOpen, closeModal, isFullScreen } = useContext(ModalContext);
+    const { isModalOpen, isFullScreen } = useContext(ModalContext);
 
     return (
         <>

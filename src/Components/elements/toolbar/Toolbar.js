@@ -119,13 +119,7 @@ function Toolbar({setChildren, setTempButton}) {
     }
 
     const toggleToolbar = (button) => {
-        if (isClosed){
-            setIsClosed(!isClosed);
-            return;
-        }
-        setTimeout( () => {
-            setIsClosed(!isClosed);
-        }, 400);
+        setIsClosed(!isClosed);
     };
 
     const handleCloseModal = () => {
@@ -166,7 +160,7 @@ function Toolbar({setChildren, setTempButton}) {
             );
             openModal();
         }, 100);
-        setPosition({x: 0, y: 0, z: 1});
+        setPosition({x: 0, y: 0, z: 1}); // Show the button for the first time.
     }
 
     const handleSaveButton = async () => {
