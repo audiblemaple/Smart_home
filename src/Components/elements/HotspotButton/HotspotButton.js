@@ -56,6 +56,7 @@ const HotspotButton = ({
         // Not a light message, ignore
         if (websocketMessage.type !== "light" || websocketMessage.id !== nodeID)
             return;
+        console.log(websocketMessage);
         setIsOn(websocketMessage.argument);
     }, [websocketMessage]);
 
