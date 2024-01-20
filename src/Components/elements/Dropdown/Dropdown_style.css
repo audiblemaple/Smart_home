@@ -26,7 +26,7 @@
     box-sizing: border-box;
 }
 .list-box::-webkit-scrollbar {
-    display: none;
+    /*display: none;*/
 }
 
 .hidden {

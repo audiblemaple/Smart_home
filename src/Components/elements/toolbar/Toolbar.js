@@ -243,7 +243,7 @@ function Toolbar({setChildren, setTempButton}) {
                 <Dropdown initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
 
                 <div className="buttons-container">
-                    <button onClick={handleCloseModal}> Cancel</button>
+                    <button onClick={handleNodeSettings}> Cancel</button>
                     <button onClick={handleSubmitNewButton}> Submit</button>
                 </div>
             </div>
@@ -282,12 +282,8 @@ function Toolbar({setChildren, setTempButton}) {
                 <div className="buttons-container">
                     <button id="file-upload" className="icon" onClick={handleFileUpload}></button>
                     <button id="file-remove" className="icon" onClick={handleModelSelect}></button>
-                </div>
-                <div className="buttons-container">
                     <button id="model-change" className="icon" onClick={handleModelSelect}></button>
                     <button id="sky-box-change" className="icon" onClick={handleCloseModal}></button>
-                </div>
-                <div className="buttons-container">
                     <button onClick={handleCloseModal}> Cancel</button>
                 </div>
             </div>
@@ -306,7 +302,19 @@ function Toolbar({setChildren, setTempButton}) {
         openModal();
     }
 
+
     const handleModelSelect = () => {
+        fetch(`${process.env.REACT_APP_SERVER_API_URL}/listDir`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({dir: "models"})
+        }
+        )
+        .then(response => response.text())
+        .catch((error) => console.error('Error:', error));
+
         closeModal();
         setChildren(
             <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -320,6 +328,21 @@ function Toolbar({setChildren, setTempButton}) {
         );
         openModal();
     }
+
+    // const handleModelSelect = () => {
+    //     closeModal();
+    //     setChildren(
+    //         <div className="modal" onClick={(e) => e.stopPropagation()}>
+    //             <h2>Select Model</h2>
+    //             <Dropdown initialText={type} list={buttonTypeList} setSelectedElement={setType}/>
+    //             <div className="buttons-container">
+    //                 <button onClick={handleHomeClick}> Cancel</button>
+    //                 <button onClick={handleSubmitNewButton}> Submit</button>
+    //             </div>
+    //         </div>
+    //     );
+    //     openModal();
+    // }
 
     const handleNodeSettings = () => {
         closeModal();

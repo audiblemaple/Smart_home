@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9b0dcb6d-d8fd-4cee-8b54-7e2906712f17" name="Changes" comment="Fixed bug where the modal was closing aby itself after a while">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/Buttons_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/Buttons_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/HotspotButton/HotspotButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/Dropdown/Dropdown_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/Dropdown/Dropdown_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/elements/toolbar/Toolbar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,15 +225,8 @@
       <workItem from="1705291454148" duration="6460000" />
       <workItem from="1705317428211" duration="535000" />
       <workItem from="1705318194816" duration="1000" />
-      <workItem from="1705318727559" duration="1992000" />
-    </task>
-    <task id="LOCAL-00017" summary="branch removed">
-      <option name="closed" value="true" />
-      <created>1699130596068</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1699130596068</updated>
+      <workItem from="1705318727559" duration="2006000" />
+      <workItem from="1705739970729" duration="1399000" />
     </task>
     <task id="LOCAL-00018" summary="removed static files">
       <option name="closed" value="true" />
@@ -619,7 +612,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705317883543</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Fixed bug where the modal was closing aby itself after a while">
+      <option name="closed" value="true" />
+      <created>1705320730258</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1705320730258</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
